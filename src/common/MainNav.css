@@ -1,0 +1,36 @@
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.sticky-top {
+    background-color: var(--color1);
+}
+.nav-padded{
+    padding-left: calc(35px / 2);
+    padding-right: calc(35px / 2);
+    padding-top: 32px;
+    padding-bottom: 32px;
+    font-family: "Oswald", "Open sans", sans-serif;
+}
+.nav-home{
+    padding-left: 0;
+    padding-right: calc(35px / 2);
+    padding-top: 32px;
+    padding-bottom: 32px;
+    font-family: "Oswald", "Open sans", sans-serif;
+}
+.icono {
+    color: black;
+    padding-left: 30px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+#logo{
+    max-width: 120px;
+    max-height: 120px;
+    margin: 0;
+}
+.centro{
+    display: flex;
+    justify-content: space-around;
+}

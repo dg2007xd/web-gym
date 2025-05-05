@@ -1,0 +1,25 @@
+
+#main-header {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--color2);
+    color: var(--color1);
+}
+
+h4 a {
+    color: var(--color1);
+}
+
+
+
+
+.blueW {
+    color: #4B5BE9;
+}
+.Bblanco{
+    background-color: white;
+}
