@@ -4,7 +4,7 @@ import { useState } from "react"
 import logo from '../assets/images/gym-logo.png'
 function MainNav() {
 
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("");
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("home");
 
 
   return (
@@ -37,7 +37,9 @@ function MainNav() {
 
               </li>
               <li className="nav-item dropdown">
-                <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "categories" ? "active" : ""}`} to="/categories" onClick={() => setCategoriaSeleccionada("categories")}>CATEGORIES</Link>
+                <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "categories" ? "active" : ""}`} to="/categories" onClick={() => setCategoriaSeleccionada("categories")}>CATEGORIES  
+                <button type="button" className="btn btn-success ms-1">SALE</button></Link>
+                
 
                 <ul className="dropdown-content nav-item dropdown-menu">
                   <li><a className="dropdown-item" href="#">Action</a></li>
@@ -47,7 +49,9 @@ function MainNav() {
 
               </li>
               <li className="nav-item dropdown">
-                <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "products" ? "active" : ""}`} to="/products" onClick={() => setCategoriaSeleccionada("products")}>PRODUCTS</Link>
+                <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "products" ? "active" : ""}`} to="/products" onClick={() => setCategoriaSeleccionada("products")}>PRODUCTS  
+                <button type="button" className="btn btn-danger ms-1">HOT</button>
+                </Link>
 
                 <ul className="dropdown-content nav-item dropdown-menu">
                   <li><a className="dropdown-item" href="#">Action</a></li>
@@ -86,12 +90,12 @@ function MainNav() {
 
 
         <div className="col">
-          <ul className="header-nav">
+          <div className="header-nav">
             <li className="icono"><i className="bi bi-search"></i></li>
             <li className="icono"><i className="bi bi-person"></i></li>
             <li className="icono"><i className="bi bi-heart"></i></li>
             <li className="icono"><i className="bi bi-bag-dash"></i></li>
-          </ul>
+          </div>
         </div>
 
       </div>

@@ -106,6 +106,15 @@ h5 {
   justify-content: end;
 }
 
+.btn{
+  font-size: 10px;
+    margin-left: 0.5em;
+    line-height: normal;
+    padding: 0.2em 0.6em;
+    border-radius: 4px;
+    color: var(--color-blanco);
+}
+
 @media (min-width: 1750px) {
 
   .container,
