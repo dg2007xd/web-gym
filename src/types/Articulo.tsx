@@ -1,7 +1,7 @@
-export interface Categoria {
+export interface Articulo {
     id: number;
     nombre: string;
     precio: number;
-    descuento: string;
+    rating: number;
     imagen: string;
 }

@@ -1,0 +1,33 @@
+#planes{
+    color: var(--color-negro);
+}
+.img-planes{
+    width: 24rem;
+    height: 22rem;
+}
+.text-planes{
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 34px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+.caption{
+    position: relative;
+    bottom: 76%;
+}
+.caption-desc{
+    position: relative;
+    bottom: 92%;
+}
+.descuento-plan{
+    font-family: "Open sans", sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    line-height: 0.938rem;
+    text-transform: uppercase;
+    background-color: var(--color2);
+    color: var(--color-blanco);
+    margin: 0 38%;
+    padding: 3px 5px 3px 5px;
+}

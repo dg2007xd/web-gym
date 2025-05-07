@@ -1,13 +1,43 @@
 .carousel-caption {
     position: absolute;
     right: 15%;
-    bottom: 22.25rem;
+    bottom: 13.25rem;
     left: 15%;
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
     color: var(--bs-carousel-caption-color);
     text-align: center;
 }
+.titulo{
+    font-size: 1.125rem;
+    font-family: "Open Sans", sans-serif;
+}
+.sub{
+    font-size: 4.375rem;
+    font-family: "Oswald", sans-serif;
+    height: 700;
+}
 .banner-img{
     filter: brightness(50%);
+    width: 1708px;
+    height: 700px;
+}
+.padded-banner{
+    padding-left: 7.4rem;
+    padding-right: 7.4rem;
+    padding-top: 5rem;
+}
+.btnC{
+    font-weight: 600;
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.875rem;
+    padding: 10px 20px;
+    border: none;
+    transition: all 0.5s ease;
+}
+.btnC:hover{
+    background-color: var(--color-negro);
+    color: white;
 }

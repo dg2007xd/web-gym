@@ -1,0 +1,60 @@
+#back-img {
+    width: 90%;
+    height: 17.5rem;
+    background-color: #F4F4F5;
+}
+
+/*
+#nombre-produc{
+    font-family: "Open sans", sans-serif;
+    font-size: 0.9rem;
+}
+    */
+#titulo {
+    font-family: "Oswald", sans-serif;
+    font-size: 1.875rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.img-produc {
+    width: 15rem;
+    height: 13rem;
+}
+
+.section-img {
+    margin: 0.5rem 2rem;
+}
+
+.precio-produc {
+    color: var(--color2);
+    font-weight: bold;
+}
+
+.col-produc {
+    flex: 0 0 auto;
+    width: 22%;
+    height: 25rem;
+}
+
+.sec-pro {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+article a {
+    font-family: "Open sans", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--color-negro);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+article .active {
+    color: var(--color2);
+    text-decoration: underline;
+}

@@ -11,7 +11,9 @@
 }
 
 h4 a {
+    font-size: 0.75rem;
     color: var(--color1);
+    text-decoration: underline;
 }
 
 

@@ -1,17 +1,15 @@
-import Envios from "../home/Envios"
-import Historia from "../home/Historia"
+import TablasDB from "../home/TablasDB"
 import MainBanner from "../home/MainBanner"
-import Nosotros from "../home/Nosotros"
-import Noticias from "../home/Noticias"
+import Planes from "../home/Planes"
+import Productos from "../home/Productos"
 
 function Start() {
   return (
     <>
         <MainBanner />
-        <Nosotros />
-        <Noticias />
-        <Historia />
-        <Envios />
+        <Planes />
+        <Productos />
+        <TablasDB />
     </>
   )
 }

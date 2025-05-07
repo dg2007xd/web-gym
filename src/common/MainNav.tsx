@@ -1,8 +1,24 @@
 import { Link } from "react-router-dom"
 import './MainNav.css'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import logo from '../assets/images/gym-logo.png'
 function MainNav() {
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector('.sticky-top') as HTMLElement | null;
+      if (header) {
+          if (window.scrollY > 0) {
+              header.classList.add('sticky-shadow');
+          } else {
+              header.classList.remove('sticky-shadow');
+          }
+      }
+  };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+}, []);
 
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("home");
 
@@ -11,8 +27,6 @@ function MainNav() {
     <nav className="navbar navbar-expand-lg sticky-top" >
       <div className="container">
         <div className="row center">
-
-
 
 
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
