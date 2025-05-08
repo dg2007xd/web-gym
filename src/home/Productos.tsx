@@ -43,11 +43,11 @@ function Noticias() {
                     listaArticulos.map(item =>
                         <div className='col-3' key={item.id}>
                             <div className='sec-pro'>   
-                                <div id='back-img' className='center'>
-                                    <img src={"http://localhost/PHPgym/" + item.imagen} className="img-produc" alt="..." />
+                                <div id='back-img' className='center container-fluid'>
+                                    <img src={"http://localhost/PHPgym/" + item.imagen} className="img-fluid ps-3 pe-3 pt-3 pb-3" alt="..." />
                                 </div>
 
-                                <p className='center ms-4 me-4'>{item.nombre}</p>
+                                <p className='center ms-4 me-4 fs-6'>{item.nombre}</p>
                                 <div className="center">
                                     {renderStars(item.rating)}
                                 </div>

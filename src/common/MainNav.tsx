@@ -41,33 +41,34 @@ function MainNav() {
 
 
               <li className="nav-item dropdown">
-                <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "tienda" ? "active" : ""}`} to="/tienda" onClick={() => setCategoriaSeleccionada("tienda")}>STORE</Link>
+                <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "tienda" ? "active" : ""}`} to="/tienda" onClick={() => setCategoriaSeleccionada("tienda")}>SHOP</Link>
 
-                <ul className="dropdown-content nav-item dropdown-menu">
+                <ul className="dropdown-menu">
                   <li><a className="dropdown-item" href="#">Action</a></li>
                   <li><a className="dropdown-item" href="#">Another action</a></li>
                   <li><a className="dropdown-item" href="#">Something else here</a></li>
                 </ul>
 
               </li>
+
               <li className="nav-item dropdown">
                 <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "categories" ? "active" : ""}`} to="/categories" onClick={() => setCategoriaSeleccionada("categories")}>CATEGORIES
-                  <button type="button" className="btn btn-success ms-1">SALE</button></Link>
+                <button type="button" className="btn btn-success ms-1">SALE</button></Link>
 
-
-                <ul className="dropdown-content nav-item dropdown-menu">
+                <ul className="dropdown-menu">
                   <li><a className="dropdown-item" href="#">Action</a></li>
                   <li><a className="dropdown-item" href="#">Another action</a></li>
                   <li><a className="dropdown-item" href="#">Something else here</a></li>
                 </ul>
 
               </li>
+
               <li className="nav-item dropdown">
                 <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "products" ? "active" : ""}`} to="/products" onClick={() => setCategoriaSeleccionada("products")}>PRODUCTS
                   <button type="button" className="btn btn-danger ms-1">HOT</button>
                 </Link>
 
-                <ul className="dropdown-content nav-item dropdown-menu">
+                <ul className="dropdown-menu">
                   <li><a className="dropdown-item" href="#">Action</a></li>
                   <li><a className="dropdown-item" href="#">Another action</a></li>
                   <li><a className="dropdown-item" href="#">Something else here</a></li>
@@ -77,7 +78,7 @@ function MainNav() {
               <li className="nav-item dropdown">
                 <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "top-deals" ? "active" : ""}`} to="/top-deals" onClick={() => setCategoriaSeleccionada("top-deals")}>TOP DEALS</Link>
 
-                <ul className="dropdown-content nav-item dropdown-menu">
+                <ul className="dropdown-menu">
                   <li><a className="dropdown-item" href="#">Action</a></li>
                   <li><a className="dropdown-item" href="#">Another action</a></li>
                   <li><a className="dropdown-item" href="#">Something else here</a></li>
@@ -87,7 +88,7 @@ function MainNav() {
               <li className="nav-item dropdown">
                 <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "elements" ? "active" : ""}`} to="/elements" onClick={() => setCategoriaSeleccionada("elements")}>ELEMENTS</Link>
 
-                <ul className="dropdown-content nav-item dropdown-menu">
+                <ul className="dropdown-menu">
                   <li><a className="dropdown-item" href="#">Action</a></li>
                   <li><a className="dropdown-item" href="#">Another action</a></li>
                   <li><a className="dropdown-item" href="#">Something else here</a></li>
@@ -95,10 +96,10 @@ function MainNav() {
 
               </li>
 
-              <li className="nav-item dropdown">
-                <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "clientes" ? "active" : ""}`} to="/clientes" onClick={() => setCategoriaSeleccionada("clientes")}>CLIENTES</Link>
+              <li className="dropdown">
+                <Link className={`nav-link nav-padded ${categoriaSeleccionada === "clientes" ? "active" : ""}`} to="/clientes" onClick={() => setCategoriaSeleccionada("clientes")}>CLIENTES</Link>
 
-                <ul className="dropdown-content nav-item dropdown-menu">
+                <ul className="dropdown-menu">
                   <li><a className="dropdown-item" href="#">Action</a></li>
                   <li><a className="dropdown-item" href="#">Another action</a></li>
                   <li><a className="dropdown-item" href="#">Something else here</a></li>

@@ -5,31 +5,36 @@
     left: 15%;
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
-    padding-left: 10rem;
-    padding-right: 10rem;
+    max-width: 50rem;
+    margin: auto;
     color: var(--bs-carousel-caption-color);
     text-align: center;
 }
-.titulo{
+
+.titulo {
     font-size: 1.125rem;
     font-family: "Open Sans", sans-serif;
 }
-.sub{
+
+.sub {
     font-size: 4.375rem;
     font-family: "Oswald", sans-serif;
     height: 700;
 }
-.banner-img{
+
+.banner-img {
     filter: brightness(50%);
     width: 1708px;
     height: 700px;
 }
-.padded-banner{
+
+.padded-banner {
     padding-left: 7.4rem;
     padding-right: 7.4rem;
     padding-top: 5rem;
 }
-.btnC{
+
+.btnC {
     font-weight: 600;
     font-family: "Open Sans", sans-serif;
     font-size: 0.875rem;
@@ -37,7 +42,22 @@
     border: none;
     transition: all 0.5s ease;
 }
-.btnC:hover{
+
+.btnC:hover {
     background-color: var(--color-negro);
     color: white;
+}
+
+@media (max-width: 430px) {
+    .banner-img {
+        filter: brightness(50%);
+        width: 400px;
+        height: 400px;
+    }
+    .padded-banner {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 5rem;
+    }
+
 }

@@ -25,12 +25,12 @@ function Nosotros() {
     const mostrarItem = () => {
 
         return (
-            <div className='row'>
+            <div className='row padded-inverso'>
                 {
                     listaCategorias.map(item =>
-                        <div className='col-4 ' key={item.id}>
+                        <div className='col-4' key={item.id}>
 
-                            <img src={"http://localhost/PHPgym/" + item.imagen} className="img-planes" alt="..." />
+                            <img src={"http://localhost/PHPgym/" + item.imagen} className="img-fluid" alt="..." />
                             <h1 className='caption Oswald text-planes ms-5 me-5'>{item.nombre}</h1>
                             <p className='descuento-plan caption-desc'>{item.descuento}</p>
 
@@ -42,10 +42,10 @@ function Nosotros() {
     };
 
     return (
-        <section id="planes" className='padded-inverso'>
-            <div className="container">
-                <div className="container text-center">
-                    <h1 className='text-center Oswald'>PLANES</h1>
+        <section id="planes" className='container'>
+            <div className="">
+                <div className="container text-center mt-5">
+                    
                     {mostrarItem()}
 
                 </div>

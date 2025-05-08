@@ -1,6 +1,6 @@
 #back-img {
     width: 90%;
-    height: 17.5rem;
+    max-height: 17.5rem;
     background-color: #F4F4F5;
 }
 
@@ -17,10 +17,6 @@
     font-weight: 500;
 }
 
-.img-produc {
-    width: 15rem;
-    height: 13rem;
-}
 
 .section-img {
     margin: 0.5rem 2rem;

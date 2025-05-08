@@ -73,13 +73,16 @@ h5 {
   padding-top: 90px;
   padding-bottom: 90px;
 }
-.padded-inverso{
+
+.padded-inverso {
   padding-left: 18rem;
   padding-right: 18rem;
 }
+
 .checked {
   color: orange;
 }
+
 .center {
   display: flex;
   align-items: center;
@@ -113,15 +116,16 @@ h5 {
   justify-content: end;
 }
 
-.btn{
+.btn {
   font-size: 10px;
-    margin-left: 0.5em;
-    line-height: normal;
-    padding: 0.2em 0.6em;
-    border-radius: 4px;
-    color: var(--color-blanco);
+  margin-left: 0.5em;
+  line-height: normal;
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  color: var(--color-blanco);
 }
-.img-tabla{
+
+.img-tabla {
   max-width: 60px;
   max-height: 60px;
 }
