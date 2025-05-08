@@ -54,3 +54,8 @@ article .active {
     color: var(--color2);
     text-decoration: underline;
 }
+@media (max-width: 1397px) {
+    .fsnombre{
+        font-size: 0.80rem !important;
+    }
+}

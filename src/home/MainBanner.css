@@ -29,9 +29,9 @@
 }
 
 .padded-banner {
-    padding-left: 7.4rem;
-    padding-right: 7.4rem;
-    padding-top: 5rem;
+    margin: auto;
+    justify-content: center;
+    max-width: 88%;
 }
 
 .btnC {
@@ -54,10 +54,6 @@
         width: 400px;
         height: 400px;
     }
-    .padded-banner {
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-top: 5rem;
-    }
+    
 
 }

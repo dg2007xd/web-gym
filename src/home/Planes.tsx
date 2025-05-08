@@ -25,7 +25,7 @@ function Nosotros() {
     const mostrarItem = () => {
 
         return (
-            <div className='row padded-inverso'>
+            <div className='row '>
                 {
                     listaCategorias.map(item =>
                         <div className='col-4' key={item.id}>
@@ -42,14 +42,14 @@ function Nosotros() {
     };
 
     return (
-        <section id="planes" className='container'>
-            <div className="">
-                <div className="container text-center mt-5">
+        <section id="planes">
+            
+                <div className="padded-inverso text-center mt-5">
                     
                     {mostrarItem()}
 
                 </div>
-            </div>
+            
         </section>
     );
 }

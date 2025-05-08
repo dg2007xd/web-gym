@@ -75,8 +75,9 @@ h5 {
 }
 
 .padded-inverso {
-  padding-left: 18rem;
-  padding-right: 18rem;
+  justify-content: center;
+  margin: auto;
+  max-width: 60%;
 }
 
 .checked {
@@ -139,5 +140,10 @@ h5 {
   .container-xl,
   .container-xxl {
     max-width: 1700px;
+  }
+}
+@media (min-width: 1400px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+      max-width: 1555px;
   }
 }

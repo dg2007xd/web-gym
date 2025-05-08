@@ -47,7 +47,7 @@ function Noticias() {
                                     <img src={"http://localhost/PHPgym/" + item.imagen} className="img-fluid ps-3 pe-3 pt-3 pb-3" alt="..." />
                                 </div>
 
-                                <p className='center ms-4 me-4 fs-6'>{item.nombre}</p>
+                                <p className='center ms-4 me-4 fs-6 fsnombre'>{item.nombre}</p>
                                 <div className="center">
                                     {renderStars(item.rating)}
                                 </div>
@@ -68,7 +68,7 @@ function Noticias() {
                     <article className="col-2">
                         <Link className={`derecha ${categoriaSeleccionada === "primero" ? "active" : ""}`} to="#" onClick={() => setCategoriaSeleccionada("primero")}>New Arrival</Link>
                     </article>
-                    <article className="col-1">
+                    <article className="col-1 ms-2 me-2">
                         <Link className={`center ${categoriaSeleccionada === "segundo" ? "active" : ""}`} to="#" onClick={() => setCategoriaSeleccionada("segundo")}>Featured</Link>
                     </article>
                     <article className="col-2">
