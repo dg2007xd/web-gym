@@ -6,8 +6,8 @@ import MainNav from './common/MainNav'
 import Start from './pages/Start'
 import Investments from './pages/Investments'
 import Suppliers from './pages/Suppliers'
-import Employees from './pages/Employees'
-import Store from './pages/Store'
+import Clientes from './pages/Clientes'
+import Shop from './pages/Shop'
 
 function App() {
   return (
@@ -19,10 +19,11 @@ function App() {
         <main id="main-content">
           <Routes>
             <Route path="/" element={<Start />} />
+            <Route path="/tienda" element={<Shop />} />
             <Route path="/inversiones" element={<Investments />} />
             <Route path="/proveedores" element={<Suppliers />} />
-            <Route path="/empleados" element={<Employees />} />
-            <Route path="/tienda" element={<Store />} />
+            <Route path="/clientes" element={<Clientes />} />
+            
           </Routes>     
         </main>
         

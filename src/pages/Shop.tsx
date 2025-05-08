@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
 import PageHeader from "../components/PageHeader"
-import { Categoria } from "../types/Categoria";
 import Productos from "../components/Productos";
+
+interface Categoria2 {
+    idcategoria: number;
+    nombre: string;
+    descripcion: string;
+    foto: string;
+    total: number;
+}
 
 function Store() {
 
-    const [listaCategorias, setListaCategorias] = useState<Categoria[]>([]);
-    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<Categoria | null>(null);
+    const [listaCategorias, setListaCategorias] = useState<Categoria2[]>([]);
+    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<Categoria2 | null>(null);
 
     useEffect(() => {
         leerServicio();
@@ -15,7 +22,7 @@ function Store() {
     const leerServicio = () => {
         fetch("https://servicios.campus.pe/categorias.php")
             .then(response => response.json())
-            .then((data: Categoria[]) => {
+            .then((data: Categoria2[]) => {
                 console.log(data);
                 setListaCategorias(data);
             })
@@ -42,7 +49,7 @@ function Store() {
         )
     }
 
-    const seleccionarCategoria = (item: Categoria) => {
+    const seleccionarCategoria = (item: Categoria2) => {
         console.log(item);
         setCategoriaSeleccionada(item);
     }
