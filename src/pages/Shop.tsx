@@ -1,30 +1,30 @@
 import { useEffect, useState } from "react";
-import PageHeader from "../components/PageHeader"
-import Productos from "../components/Productos";
+import PageHeader from "../components/PageHeader";
+import ProductosItems from "../components/ProductosItems";
+import { API_URL } from "../utils";
+import { Categoria } from "../types/Categoria";
 
-interface Categoria2 {
-    idcategoria: number;
-    nombre: string;
-    descripcion: string;
-    foto: string;
-    total: number;
-}
-
-function Store() {
-
-    const [listaCategorias, setListaCategorias] = useState<Categoria2[]>([]);
-    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<Categoria2 | null>(null);
+function Shop() {
+    const [listaCategorias, setListaCategorias] = useState<Categoria[]>([]);
+    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<Categoria | null>(null);
+    
 
     useEffect(() => {
         leerServicio();
     }, []);
 
     const leerServicio = () => {
-        fetch("https://servicios.campus.pe/categorias.php")
-            .then(response => response.json())
-            .then((data: Categoria2[]) => {
-                console.log(data);
+        fetch(API_URL + "categoria.php")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+                return response.json();
+            })
+            .then((data: Categoria[]) => {
+                console.log("Datos recibidos:", data);
                 setListaCategorias(data);
+                // No establecer categoría por defecto al inicio
             })
             .catch((error) => {
                 console.error("Error consultando datos:", error);
@@ -32,52 +32,62 @@ function Store() {
     }
 
     const dibujarLista = () => {
+        if (listaCategorias.length === 0) {
+            return <div className="text-muted">Cargando categorías...</div>;
+        }
+
         return (
             <ul className="list-group">
-
-
-                {listaCategorias.map(item => (
-                    <li key={item.idcategoria} 
-                        className={"list-group-item" + (categoriaSeleccionada?.idcategoria === item.idcategoria ? " active" : "")}
-                        title={item.descripcion}
-                        onClick={() => seleccionarCategoria(item)}>
-                        {item.nombre} ({item.total})
-                    </li>
-                ))}
-
+                {listaCategorias
+                    .filter(item => item.total > 0)
+                    .map(item => (
+                        <li 
+                            key={item.idcategoria}
+                            className={`list-group-item ${categoriaSeleccionada?.idcategoria === item.idcategoria ? "active" : ""}`}
+                            onClick={() => seleccionarCategoria(item)}
+                            style={{ cursor: 'pointer' }}
+                        >
+                            {item.nombrecategoria} ({item.total})
+                        </li>
+                    ))}
             </ul>
-        )
+        );
     }
 
-    const seleccionarCategoria = (item: Categoria2) => {
-        console.log(item);
+    const seleccionarCategoria = (item: Categoria) => {
+        console.log("Categoría seleccionada:", item);
         setCategoriaSeleccionada(item);
+         // Activamos el filtrado
     }
-
-
-
 
     return (
         <>
             <PageHeader pageTitle="Tienda" />
-            <section id="store" className='padded'>
+            <section id="store" className='padded padded-inverso'>
                 <div className="container">
                     <div className="row">
                         <div className="col-3">
-                            <h3>Categorias</h3>
+                            <h3>Categorías</h3>
                             {dibujarLista()}
                         </div>
                         <div className="col-9">
-                            <h3>{categoriaSeleccionada?.nombre}</h3>
-                            <p>{categoriaSeleccionada?.descripcion}</p>
-                            <Productos codigoCategoria={categoriaSeleccionada?.idcategoria || 0}/>
+                            <h3>
+                                {categoriaSeleccionada ? 
+                                    `Mostrando productos de ${categoriaSeleccionada.nombrecategoria}` : 
+                                    "Seleccione una categoría"}
+                            </h3>
+                            {categoriaSeleccionada && (
+                                <ProductosItems 
+                                    codigoCategoria={categoriaSeleccionada.idcategoria} 
+                                    key={categoriaSeleccionada.idcategoria} // Forzar re-render al cambiar categoría
+                                />
+                            )}
                         </div>
                     </div>
-
                 </div>
             </section>
         </>
-    )
+    );
 }
 
-export default Store
+export default Shop;

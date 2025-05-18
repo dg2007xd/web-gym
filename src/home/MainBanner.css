@@ -1,3 +1,4 @@
+
 .carousel-caption {
     position: absolute;
     right: 15%;
@@ -26,6 +27,7 @@
     filter: brightness(50%);
     width: 1708px;
     height: 700px;
+
 }
 
 .padded-banner {

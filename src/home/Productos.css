@@ -1,9 +1,11 @@
 #back-img {
-    width: 90%;
     max-height: 17.5rem;
     background-color: #F4F4F5;
 }
-
+#back-img-shop {
+    max-height: 17.5rem;
+    background-color: #F4F4F5;
+}
 /*
 #nombre-produc{
     font-family: "Open sans", sans-serif;
@@ -53,6 +55,33 @@ article a {
 article .active {
     color: var(--color2);
     text-decoration: underline;
+}
+#cards-productos img{
+    transition: all 0.5s ease-in-out;
+}
+#cards-productos img:hover{
+    transform: scale(1.2);
+}
+#cards-productos .card{
+    overflow: hidden;
+}
+#cards-productos .card:hover .icon-quick-view{
+    top: 25%;
+}
+.icon-quick-view{
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    background-color: var(--color-blanco);
+    padding: 6px 10px;
+    border-radius: 50%;
+    transform: translate(-50%, 0);
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+}
+.icon-quick-view:hover{
+    color: var(--color-blanco);
+    background-color: var(--color-negro);
 }
 @media (max-width: 1397px) {
     .fsnombre{

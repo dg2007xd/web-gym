@@ -1,6 +1,7 @@
 import './Planes.css'
 import { Categoria } from '../types/Categoria';
 import { useEffect, useState } from 'react';
+import { API_URL } from '../utils';
 
 function Nosotros() {
 
@@ -11,7 +12,7 @@ function Nosotros() {
     }, []);
 
     const leerServicio = () => {
-        fetch("http://localhost/PHPgym/planes.php")
+        fetch(API_URL + "planes.php")
             .then(response => response.json())
             .then((data: Categoria[]) => {
                 console.log(data);
@@ -30,7 +31,7 @@ function Nosotros() {
                     listaCategorias.map(item =>
                         <div className='col-4' key={item.id}>
 
-                            <img src={"http://localhost/PHPgym/" + item.imagen} className="img-fluid" alt="..." />
+                            <img src={API_URL + item.imagen} className="img-fluid" alt="..." />
                             <h1 className='caption Oswald text-planes ms-5 me-5'>{item.nombre}</h1>
                             <p className='descuento-plan caption-desc'>{item.descuento}</p>
 

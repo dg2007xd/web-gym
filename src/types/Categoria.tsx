@@ -1,7 +1,5 @@
 export interface Categoria {
-    id: number;
-    nombre: string;
-    precio: number;
-    descuento: string;
-    imagen: string;
+    idcategoria: number;
+    nombrecategoria: string;
+    total: number;
 }

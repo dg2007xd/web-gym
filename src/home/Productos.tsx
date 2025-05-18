@@ -8,19 +8,21 @@ interface ProductosProps {
     codigoCategoria: number;
 }
 
-function Noticias({ codigoCategoria }: ProductosProps) {
+function Productos({ codigoCategoria }: ProductosProps) {
     console.log(codigoCategoria);
+
+    const [listaArticulos, setListaArticulos] = useState<Articulo[]>([])
 
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("primero");
 
-    const [listaArticulos, setListaArticulos] = useState<Articulo[]>([]);
+    
 
     useEffect(() => {
-        leerServicio(codigoCategoria);
-    }, [codigoCategoria]);
+        leerServicio();
+    }, []);
 
-    const leerServicio = async (id: number) => {
-        /*
+    const leerServicio = () => {
+
         fetch(API_URL + "productos.php")
             .then(response => response.json())
             .then((data: Articulo[]) => {
@@ -30,15 +32,7 @@ function Noticias({ codigoCategoria }: ProductosProps) {
             .catch((error) => {
                 console.error("Error consultando datos:", error);
             });
-            */
-        try {
-            const response = await fetch(API_URL + "productos.php?id=" + id);
-            const data: Articulo[] = await response.json();
-            console.log(data);
-            setListaArticulos(data);
-        } catch (error) {
-            console.log("Error consultando datos:", error);
-        }
+            
     }
 
     const renderStars = (rating: number) => {
@@ -51,34 +45,46 @@ function Noticias({ codigoCategoria }: ProductosProps) {
         return stars;
     };
 
+    
+
 
     const dibujarItems = () => {
         return (
-            <div className='row center'>
-                {listaArticulos.map(item => {
-                    const nombre = String(item.nombre)
-                    const precio = Number(item.precio)
-                    return (
-                        <div className='col-3' key={item.id}>
-                            <div className='sec-pro'>
-                                <div id='back-img' className='center container-fluid'>
-                                    <img src={item.imagen === null
-                                        ? API_URL + "img/nofoto.jpg"
-                                        : API_URL + item.imagen} className="img-fluid ps-3 pe-3 pt-3 pb-3" alt="..." />
+            <div id="cards-productos">
+                <div className='row center'>
+                    {listaArticulos.map(item => {
+                        const nombre = String(item.nombre)
+                        const precio = Number(item.precio)
+                        return (
+                            <div className='col-3 p-3' key={item.id}>
+                                <div className='sec-pro h-100'>
+                                    <div id='back-img' className='center container-fluid'>
+                                        <Link to={"/productodetalle/" + item.id}>
+                                            <img src={item.imagen === null
+                                                ? API_URL + "img/nofoto.jpg"
+                                                : API_URL + item.imagen} className="img-fluid p-3" alt="..." />
+                                        </Link>
+                                        
+                                    </div>
+
+                                    <p className='text-center fs-6 fsnombre'>{nombre || "Nombre no disponible"}</p>
+                                    <div className="center">
+                                        {renderStars(item.rating)}
+                                    </div>
+                                    <p className='precio-produc center'>S/ {precio}</p>
                                 </div>
-                                
-                                <p className='center ms-4 me-4 fs-6 fsnombre'>{nombre || "Nombre no disponible"}</p>
-                                <div className="center">
-                                    {renderStars(item.rating)}
-                                </div>
-                                <p className='precio-produc center'>S/ {precio}</p>
                             </div>
-                        </div>
+                        )
+                    }
                     )}
-                )}
+                </div>
             </div>
         );
     };
+
+    
+
+
 
     return (
         <section id="productos" className='padded-inverso '>
@@ -97,10 +103,11 @@ function Noticias({ codigoCategoria }: ProductosProps) {
                 </div>
                 <div>
                     {dibujarItems()}
+                    
                 </div>
             </div>
         </section>
     )
 }
 
-export default Noticias
+export default Productos

@@ -3,7 +3,9 @@ import slide2 from './../assets/images/foto2.jpg';
 import './MainBanner.css';
 
 
+
 function MainBanner() {
+
   return (
     <div id="carouselExampleCaptions" className="carousel slide padded-banner" data-bs-ride="carousel">
       <div className="carousel-indicators">
@@ -12,7 +14,7 @@ function MainBanner() {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src={slide1} className="d-block  banner-img" alt="..." />
+          <img src={slide1} className="d-block banner-img" alt="..." />
           <div className="carousel-caption d-none d-md-block">
             <h5 className='titulo mb-5'>ENTRENA CON LOS MEJORES</h5>
             <p className='sub'>SOLUCIONES DE ALTO RENDIMIENTO</p>
@@ -40,5 +42,6 @@ function MainBanner() {
     </div>
   )
 }
+
 
 export default MainBanner

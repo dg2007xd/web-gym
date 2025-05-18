@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { API_URL } from '../utils';
 
 
 interface Tproductos {
@@ -45,7 +46,7 @@ function TablasDB() {
     }, []);
 
     const funcProductos = () => {
-        fetch("http://localhost/PHPgym/productos.php")
+        fetch(API_URL + "productos.php")
             .then(response => response.json())
             .then((data: Tproductos[]) => {
                 console.log(data);
@@ -57,7 +58,7 @@ function TablasDB() {
     }
 
     const funcPlanes = () => {
-        fetch("http://localhost/PHPgym/planes.php")
+        fetch(API_URL + "planes.php")
             .then(response => response.json())
             .then((data: Tplanes[]) => {
                 console.log(data);
@@ -69,7 +70,7 @@ function TablasDB() {
     }
 
     const funcLocales = () => {
-        fetch("http://localhost/PHPgym/locales.php")
+        fetch(API_URL + "locales.php")
             .then(response => response.json())
             .then((data: Tlocales[]) => {
                 console.log(data);
@@ -102,7 +103,7 @@ function TablasDB() {
                                 <td>{item.nombre}</td>
                                 <td>{item.precio}</td>
                                 <td>{item.rating}</td>
-                                <td><img src={"http://localhost/PHPgym/" + item.imagen} className="img-tabla " alt="..." /></td>
+                                <td><img src={API_URL + item.imagen} className="img-tabla " alt="..." /></td>
                             </tr>
                         )}
                     </tbody>
@@ -128,7 +129,7 @@ function TablasDB() {
                                 <td>{item.nombre}</td>
                                 <td>{item.precio}</td>
                                 <td>{item.descuento}</td>
-                                <td><img src={"http://localhost/PHPgym/" + item.imagen} className="img-tabla " alt="..." /></td>
+                                <td><img src={API_URL + item.imagen} className="img-tabla " alt="..." /></td>
                             </tr>
                         )}
                     </tbody>

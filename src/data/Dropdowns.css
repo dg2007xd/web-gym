@@ -1,0 +1,38 @@
+.bg-categories-img{
+    background-color: red;
+    
+    background-size: auto;
+    margin: 0;
+}
+.mega-menuS {
+    top: 95px;
+    border-radius: 0%;
+    width: 105rem;
+    position: absolute;
+    left: -52px;
+}
+
+.mega-menuC {
+    top: 95px;
+    border-radius: 0%;
+    width: 105rem;
+    position: absolute;
+    left: -133px;
+}
+
+
+.mega-menuP {
+    top: 95px;
+    border-radius: 0%;
+    width: 105rem;
+    position: absolute;
+    left: -286px;
+}
+
+.mega-menuT {
+    top: 95px;
+    border-radius: 0%;
+    width: 105rem;
+    position: absolute;
+    left: -428px;
+}

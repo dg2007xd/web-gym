@@ -1,8 +1,13 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import './MainNav.css'
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import logo from '../assets/images/gym-logo.png'
+import { navItems } from "../data/MainNavData"
+import { dropdownTienda, dropdownCategorias, dropdownProductos, dropdownTopDeals } from "../data/Dropdowns"
 function MainNav() {
+
+  const location = useLocation()
+  console.log(location)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +25,7 @@ function MainNav() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("home");
+
 
 
   return (
@@ -35,77 +40,28 @@ function MainNav() {
           <div className="col collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
-              <li className="nav-item">
-                <Link className={`nav-link nav-home negro ${categoriaSeleccionada === "home" ? "active" : ""}`} to="/" onClick={() => setCategoriaSeleccionada("home")}>HOME</Link>
-              </li>
+              {
+                navItems.map((itemMenu, index) =>
+                  <li className="nav-item dropdown" key={index}>
+                    <Link className={
+                      "nav-link" +
+                      (index === 0 ? " nav-home negro" : " nav-padded dropdown-toggle") +
+                      (location.pathname === itemMenu.url ? " active" : "")}
+                      to={itemMenu.url}> {itemMenu.label}{index === 2 && (
+                        <button className="btn btn-success ms-1">SALE</button>
+                      )}
+                      {index === 3 && (
+                        <button className="btn btn-danger ms-1">HOT</button>
+                      )}</Link>
 
+                    {index === 1 && dropdownTienda()}
+                    {index === 2 && dropdownCategorias()}
+                    {index === 3 && dropdownProductos()}
+                    {index === 4 && dropdownTopDeals()}
 
-              <li className="nav-item dropdown">
-                <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "tienda" ? "active" : ""}`} to="/tienda" onClick={() => setCategoriaSeleccionada("tienda")}>SHOP</Link>
-
-                <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Action</a></li>
-                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                  <li><a className="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-
-              </li>
-
-              <li className="nav-item dropdown">
-                <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "categories" ? "active" : ""}`} to="/categories" onClick={() => setCategoriaSeleccionada("categories")}>CATEGORIES
-                <button type="button" className="btn btn-success ms-1">SALE</button></Link>
-
-                <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Action</a></li>
-                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                  <li><a className="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-
-              </li>
-
-              <li className="nav-item dropdown">
-                <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "products" ? "active" : ""}`} to="/products" onClick={() => setCategoriaSeleccionada("products")}>PRODUCTS
-                  <button type="button" className="btn btn-danger ms-1">HOT</button>
-                </Link>
-
-                <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Action</a></li>
-                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                  <li><a className="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-
-              </li>
-              <li className="nav-item dropdown">
-                <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "top-deals" ? "active" : ""}`} to="/top-deals" onClick={() => setCategoriaSeleccionada("top-deals")}>TOP DEALS</Link>
-
-                <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Action</a></li>
-                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                  <li><a className="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-
-              </li>
-              <li className="nav-item dropdown">
-                <Link className={`nav-link dropdown-toggle nav-padded ${categoriaSeleccionada === "elements" ? "active" : ""}`} to="/elements" onClick={() => setCategoriaSeleccionada("elements")}>ELEMENTS</Link>
-
-                <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Action</a></li>
-                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                  <li><a className="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-
-              </li>
-
-              <li className="dropdown">
-                <Link className={`nav-link nav-padded ${categoriaSeleccionada === "clientes" ? "active" : ""}`} to="/clientes" onClick={() => setCategoriaSeleccionada("clientes")}>CLIENTES</Link>
-
-                <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Action</a></li>
-                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                  <li><a className="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-
-              </li>
+                  </li>
+                )
+              }
 
             </ul>
           </div>

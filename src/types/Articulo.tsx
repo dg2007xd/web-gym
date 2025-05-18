@@ -4,4 +4,7 @@ export interface Articulo {
     precio: number;
     rating: number;
     imagen: string;
+    idcategoria: number;
+    nombrecategoria: string;
+    total: number;
 }
