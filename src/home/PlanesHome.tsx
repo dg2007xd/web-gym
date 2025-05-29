@@ -1,11 +1,11 @@
 import './Planes.css'
-import { Categoria } from '../types/Categoria';
 import { useEffect, useState } from 'react';
 import { API_URL } from '../utils';
+import { Planes } from '../types/Planes';
 
-function Nosotros() {
+function PlanesHome() {
 
-    const [listaCategorias, setListaCategorias] = useState<Categoria[]>([]);
+    const [listaPlanes, setListaPlanes] = useState<Planes[]>([]);
 
     useEffect(() => {
         leerServicio();
@@ -14,9 +14,9 @@ function Nosotros() {
     const leerServicio = () => {
         fetch(API_URL + "planes.php")
             .then(response => response.json())
-            .then((data: Categoria[]) => {
+            .then((data: Planes[]) => {
                 console.log(data);
-                setListaCategorias(data);
+                setListaPlanes(data);
             })
             .catch((error) => {
                 console.error("Error consultando datos:", error);
@@ -28,7 +28,7 @@ function Nosotros() {
         return (
             <div className='row '>
                 {
-                    listaCategorias.map(item =>
+                    listaPlanes.map(item =>
                         <div className='col-4' key={item.id}>
 
                             <img src={API_URL + item.imagen} className="img-fluid" alt="..." />
@@ -55,4 +55,4 @@ function Nosotros() {
     );
 }
 
-export default Nosotros
+export default PlanesHome

@@ -1,7 +1,7 @@
 import TablasDB from "../home/TablasDB";
 import MainBanner from "../home/MainBanner";
-import Planes from "../home/Planes";
 import ProductosHome from "../home/ProductosHome";
+import PlanesHome from "../home/PlanesHome";
 
 function Start() {
   // Podrías hacer más dinámica la selección de categoría
@@ -10,7 +10,7 @@ function Start() {
   return (
     <main>
       <MainBanner />
-      <Planes />
+      <PlanesHome />
       <ProductosHome codigoCategoria={categoriaDestacada} />
       <TablasDB />
     </main>
