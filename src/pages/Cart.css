@@ -1,0 +1,114 @@
+.icon-delete{
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    display: inline-block;
+}
+.icon-delete:hover{
+    color: var(--color4);
+    transform: rotate(90deg);
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+} 
+input[type=number]{
+    -moz-appearance: textfield;
+}
+.quantity{
+    width: 50px !important;
+    box-shadow: none !important;
+}
+
+.boton-check{
+    background-color: var(--color2);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+}
+.boton-check:hover{
+    background-color: var(--color-negro);
+}
+.texto-canvaoff{
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Open sans', sans-serif;
+}
+.texto-cont-off{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    font-family: 'Open sans', sans-serif;
+}
+.cont-padd{
+    padding: 1rem 1rem;
+}
+.cont-padd2{
+    padding: 1rem 2rem;
+}
+.boton-buy-now{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    border-radius: 0px;
+    padding: 9px 24px 9px 24px;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+    border: 0;
+}
+.boton-view-offcan{
+    background-color: var(--color-negro);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    border-radius: 0px;
+    border: 0;
+    padding: 9px 24px 9px 24px;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+    transition: all .2s ease;
+}
+.boton-view-offcan:hover{
+    background-color: var(--color2);
+}
+
+
+.boton-check-offcan{
+    background-color: var(--color2);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    border-radius: 0px;
+    border: 0;
+    padding: 9px 24px 9px 24px;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+    transition: all .2s ease;
+}
+.boton-check-offcan:hover{
+    background-color: var(--color-negro);
+}
+.subtotal{
+    font-size: 1.25rem;
+    line-height: 22px;
+    font-weight: 500;
+    color: #666666;
+    font-family: 'Open sans', sans-serif;
+    text-transform: capitalize;
+}
+.h-73{
+    height: 73% !important;
+}

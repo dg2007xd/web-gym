@@ -2,6 +2,7 @@
     display: block;
 }
 
+
 .sticky-top {
     background-color: var(--color1);
     transition: box-shadow 0.01s ease;
@@ -10,7 +11,18 @@
 .sticky-shadow {
     box-shadow: 3px 7px 4px rgba(0, 0, 0, 0.1);
 }
-
+.titulo-ofcanvas{
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #e5e5e5;
+}
+.text-canvas{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
 .nav-padded {
     padding-left: calc(35px / 2) !important;
     padding-right: calc(35px / 2) !important;

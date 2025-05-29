@@ -7,9 +7,9 @@ function PageHeader(props: PageHeaderProps) {
 
     return (
         <header id="page-header">
-            <div className="container">
-                <p className='center'>Home / {props.pageTitle}</p>
-                <h1 className='center'>{props.pageTitle}</h1>
+            <div className="container mt-4 mb-4">
+                <p className='center before-header-style'>Home / {props.pageTitle}</p>
+                <h1 className='center page-header-style'>{props.pageTitle}</h1>
             </div>
         </header>
     )

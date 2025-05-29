@@ -15,6 +15,12 @@
   --color-gris-oscuro: #333333;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+.uppercase{
+  text-transform: uppercase;
+}
 .blanco {
   color: var(--color-blanco);
 }
@@ -69,6 +75,11 @@ h5 {
   text-transform: uppercase;
 }
 
+ul {
+  list-style-type: none;
+  /* Elimina las viñetas */
+}
+
 .padded {
   padding-top: 90px;
   padding-bottom: 90px;
@@ -88,6 +99,11 @@ h5 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.separado {
+  display: flex;
+  justify-content: space-between;
 }
 
 .list-group-item.active {
@@ -126,9 +142,50 @@ h5 {
   color: var(--color-blanco);
 }
 
+.before-header-style {
+  margin: .5em 0;
+  font-size: 14px;
+  font-family: 'Open sans', sans-serif;
+}
+
+.page-header-style {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+}
+
 .img-tabla {
   max-width: 60px;
   max-height: 60px;
+}
+
+.navbar {
+  --bs-navbar-padding-y: 0rem;
+}
+
+.list-group-item {
+  text-transform: capitalize;
+}
+
+.dropdown-toggle::after {
+  content: '\f282' !important;
+  font-family: 'bootstrap-icons' !important;
+  border: none !important;
+  vertical-align: 0 !important;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.no-dropdown-icon::after {
+  display: none !important;
+}
+.offcanvas-body {
+    flex-grow: 1;
+    padding: 0 0;
+    overflow-y: auto;
 }
 
 @media (min-width: 1750px) {
@@ -141,5 +198,5 @@ h5 {
   .container-xxl {
     max-width: 1700px;
   }
-  
+
 }

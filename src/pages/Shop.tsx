@@ -7,7 +7,15 @@ import { Categoria } from "../types/Categoria";
 function Shop() {
     const [listaCategorias, setListaCategorias] = useState<Categoria[]>([]);
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<Categoria | null>(null);
-    
+    const [totalGeneral, setTotalGeneral] = useState(0);
+
+    useEffect(() => {
+        leerServicio();
+        // Obtener el total general de productos
+        fetch(API_URL + "productos.php?total=1")
+            .then(res => res.json())
+            .then(data => setTotalGeneral(data.total));
+    }, []);
 
     useEffect(() => {
         leerServicio();
@@ -15,16 +23,11 @@ function Shop() {
 
     const leerServicio = () => {
         fetch(API_URL + "categoria.php")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Error en la respuesta del servidor');
-                }
-                return response.json();
-            })
+            .then(response => response.json())
             .then((data: Categoria[]) => {
-                console.log("Datos recibidos:", data);
+                console.log(data);
                 setListaCategorias(data);
-                // No establecer categoría por defecto al inicio
+                setCategoriaSeleccionada(data[0]);
             })
             .catch((error) => {
                 console.error("Error consultando datos:", error);
@@ -32,62 +35,51 @@ function Shop() {
     }
 
     const dibujarLista = () => {
-        if (listaCategorias.length === 0) {
-            return <div className="text-muted">Cargando categorías...</div>;
-        }
-
         return (
             <ul className="list-group">
-                {listaCategorias
-                    .filter(item => item.total > 0)
-                    .map(item => (
-                        <li 
-                            key={item.idcategoria}
-                            className={`list-group-item ${categoriaSeleccionada?.idcategoria === item.idcategoria ? "active" : ""}`}
-                            onClick={() => seleccionarCategoria(item)}
-                            style={{ cursor: 'pointer' }}
-                        >
-                            {item.nombrecategoria} ({item.total})
-                        </li>
-                    ))}
+
+                {listaCategorias.map(item => (
+                    <li key={item.idcategoria}
+                        className={"list-group-item" + (categoriaSeleccionada?.idcategoria === item.idcategoria ? " active" : "")}
+
+                        onClick={() => seleccionarCategoria(item)}>
+                        {item.nombrecategoria} ({item.total})
+                    </li>
+                ))}
+
             </ul>
-        );
+        )
     }
 
     const seleccionarCategoria = (item: Categoria) => {
-        console.log("Categoría seleccionada:", item);
+        console.log(item);
         setCategoriaSeleccionada(item);
-         // Activamos el filtrado
     }
 
     return (
         <>
-            <PageHeader pageTitle="Tienda" />
+            <PageHeader pageTitle="Shop" />
             <section id="store" className='padded padded-inverso'>
                 <div className="container">
                     <div className="row">
                         <div className="col-3">
-                            <h3>Categorías</h3>
+                            <h3>Categorias</h3>
                             {dibujarLista()}
                         </div>
                         <div className="col-9">
                             <h3>
-                                {categoriaSeleccionada ? 
-                                    `Mostrando productos de ${categoriaSeleccionada.nombrecategoria}` : 
-                                    "Seleccione una categoría"}
+                                Mostrando 1–{categoriaSeleccionada?.total || 0} de {totalGeneral} resultados
                             </h3>
-                            {categoriaSeleccionada && (
-                                <ProductosItems 
-                                    codigoCategoria={categoriaSeleccionada.idcategoria} 
-                                    key={categoriaSeleccionada.idcategoria} // Forzar re-render al cambiar categoría
-                                />
-                            )}
+
+                            <ProductosItems codigoCategoria={categoriaSeleccionada?.idcategoria || 0} />
                         </div>
                     </div>
+
                 </div>
             </section>
+
         </>
-    );
+    )
 }
 
 export default Shop;
