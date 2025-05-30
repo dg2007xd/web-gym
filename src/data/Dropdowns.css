@@ -31,6 +31,11 @@
     color: var(--color2);
 }
 
+.cont-shop-deals {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
 #back-img-categ {
     max-height: 19rem;
     background-color: #F4F4F5;
@@ -71,59 +76,189 @@
 @media (max-width: 1749px) {
 
     .mega-menuS {
-        width: 96rem;
-        left: -171px;
+        width: 96rem !important;
+        left: -171px !important;
+    }
+
+    .mega-menuC {
+        width: 96rem !important;
+        left: -251px !important;
+    }
+
+    .mega-menuP {
+        width: 96rem !important;
+        left: -404px !important;
+    }
+
+    .img-deals {
+        max-width: 6rem !important;
+        max-height: 6rem !important;
+    }
+
+    .mega-menuT {
+        width: 96rem !important;
+        height: 29rem !important;
+        position: absolute !important;
+        left: -545px !important;
+    }
+    .mega-menuT .cont-shop-deals {
+        flex: 0 0 auto;
+        width: 50% !important;
+        width: 49rem !important;
+    }
+
+    .produc-categoria {
+        background-color: white;
+        height: 111px !important;
+        width: 322px !important;
+    }
+
+    .img-deals-back {
+        height: 7rem !important;
+        width: 8rem !important;
+        background-color: white;
+        padding: 5px;
+        box-shadow: 0 0 0 5px #F4F4F5;
+    }
+
+
+    .mega-menuT .cont-shop-deals {
+        flex: 0 0 auto;
+        width: 50%;
+        width: 44rem;
+    }
+
+    .bg-categories-img-deals {
+
+        bottom: 0px;
+        right: -1px !important;
+        height: 464px !important;
+        width: 755px !important;
+    }
+
+    .bg-categories-img {
+        right: -1px !important;
+        height: 383px !important;
     }
 }
 
 @media (max-width: 1559px) {
+    .img-deals {
+        max-width: 8rem !important;
+        max-height: 6rem !important;
+    }
 
     .mega-menuS {
-        width: 86rem;
-        left: -92px;
+        width: 86rem !important;
+        left: -92px !important;
+    }
+
+    .mega-menuC {
+        width: 85rem !important;
+        left: -163px !important;
+        height: 24rem !important;
+    }
+
+    .mega-menuC .grupo1 {
+        width: 40rem !important;
+    }
+
+    .mega-menuC .grupo2 {
+        width: 45rem !important;
+    }
+
+    .dropdown-header {
+        font-size: 14px !important;
+    }
+
+    .mega-menuP {
+        width: 85rem !important;
+        left: -316px !important;
+    }
+
+    .mega-menuT {
+
+        width: 89rem !important;
+        height: 29rem !important;
+        position: absolute !important;
+        left: -490px !important;
+    }
+
+    .produc-categoria {
+        background-color: white;
+        height: 111px !important;
+        width: 322px !important;
+    }
+
+    .img-deals-back {
+        height: 7rem !important;
+        width: 8rem !important;
+        background-color: white;
+        padding: 5px;
+        box-shadow: 0 0 0 5px #F4F4F5;
+    }
+
+
+    .mega-menuT .cont-shop-deals {
+        flex: 0 0 auto;
+        width: 50%;
+        width: 44rem;
+    }
+
+    .bg-categories-img-deals {
+
+        bottom: 0px;
+        right: -1px !important;
+        height: 464px !important;
+        width: 755px !important;
+    }
+
+    .bg-categories-img {
+        right: -1px !important;
+        height: 383px !important;
     }
 }
 
 @media (max-width: 1399px) {
 
     .mega-menuS {
-        width: 77rem;
-        left: -109px;
+        width: 77rem !important;
+        left: -109px !important;
     }
 }
 
 @media (max-width: 1260px) {
 
     .mega-menuS {
-        width: 69rem;
-        left: -44px;
+        width: 69rem !important;
+        left: -44px !important;
     }
 }
 
 @media (max-width: 1199px) {
 
     .mega-menuS {
-        width: 66rem;
-        left: -111px;
+        width: 66rem !important;
+        left: -111px !important;
     }
 }
 
 @media (max-width: 1160px) {
 
     .mega-menuS {
-        width: 58rem;
-        left: -48px;
+        width: 58rem !important;
+        left: -48px !important;
     }
 }
 
 @media (max-width: 991px) {
 
     .mega-menuS .row {
-        flex-direction: column;
+        flex-direction: column !important;
     }
 
     .mega-menuS {
-        width: 40rem;
+        width: 40rem !important;
     }
 }
 

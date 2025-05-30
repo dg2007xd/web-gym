@@ -4,7 +4,10 @@ export interface Articulo {
     precio: number;
     rating: number;
     stock: number;
+    descripcion: string;
     imagen: string;
+    review: number;
+    
     idcategoria: number;
     nombrecategoria: string;
     imagencategoria: string;

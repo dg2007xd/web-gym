@@ -8,6 +8,7 @@ import Clientes from './pages/Clientes'
 import Shop from './pages/Shop'
 import ProductDetails from './pages/ProductDetails'
 import Cart from './pages/Cart'
+import ViewCart from './pages/ViewCart'
 
 function App() {
   return (
@@ -20,9 +21,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Start />} />
             <Route path="/tienda" element={<Shop />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="" element={<Cart />} />
             <Route path="/productodetalle/:id" element={<ProductDetails />} />
             <Route path="/clientes" element={<Clientes />} />
+            <Route path="/viewcart" element={<ViewCart />} />
             
           </Routes>     
         </main>

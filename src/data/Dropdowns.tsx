@@ -98,9 +98,9 @@ export const DropdownCategorias = ({ codigoCategoria }: ProductosProps) => {
   return (
     <div className="dropdown-menu mega-menuC">
       <div className="row">
-        <div className="col-md-7 p-4">
+        <div className="col-md-6 p-4 grupo1">
 
-          <div className="row">
+          <div className="row justify-content-evenly">
             <div className="col-md-3 mb-4">
               <h6 className="dropdown-header">Pipes And Fittings</h6>
               <a className="dropdown-item" href="#">Compression Fittings</a>
@@ -110,7 +110,7 @@ export const DropdownCategorias = ({ codigoCategoria }: ProductosProps) => {
 
             </div>
 
-            <div className="col-md-3 mb-4 ms-5 me-5">
+            <div className="col-md-3 mb-4 ">
               <h6 className="dropdown-header">Plumbing Accessories</h6>
               <a className="dropdown-item" href="#">Escutcheons</a>
               <a className="dropdown-item" href="#">Shower Curtains</a>
@@ -130,7 +130,7 @@ export const DropdownCategorias = ({ codigoCategoria }: ProductosProps) => {
           </div>
 
 
-          <div className="row">
+          <div className="row justify-content-evenly">
 
             <div className="col-md-3 mb-4">
               <h6 className="dropdown-header">Plumbing Hardware</h6>
@@ -141,7 +141,7 @@ export const DropdownCategorias = ({ codigoCategoria }: ProductosProps) => {
 
             </div>
 
-            <div className="col-md-3 mb-4 ms-5 me-5">
+            <div className="col-md-3 mb-4 ">
               <h6 className="dropdown-header">Plumbing Tools</h6>
               <a className="dropdown-item" href="#">Drain Snakes</a>
               <a className="dropdown-item" href="#">Pipe Clamps</a>
@@ -163,7 +163,7 @@ export const DropdownCategorias = ({ codigoCategoria }: ProductosProps) => {
 
         </div>
 
-        <div className='col-md-4 bg-categories-img'>
+        <div className='col-md-4 bg-categories-img grupo2'>
           <h3 className='center mt-4 mb-4 categ-titul'>Best Selling</h3>
           <div className="row">
 
@@ -208,6 +208,7 @@ export const DropdownCategorias = ({ codigoCategoria }: ProductosProps) => {
                     </div>
                   </div>
                 </div>
+
                 <div className="col-md-6 mb-3">
                   <div className="row align-items-center produc-categoria ms-2">
                     <div className="col-md-4">
@@ -223,6 +224,7 @@ export const DropdownCategorias = ({ codigoCategoria }: ProductosProps) => {
                     </div>
                   </div>
                 </div>
+
                 <div className="col-md-6 mb-3">
                   <div className="row align-items-center produc-categoria ms-2">
                     <div className="col-md-4">
@@ -238,6 +240,7 @@ export const DropdownCategorias = ({ codigoCategoria }: ProductosProps) => {
                     </div>
                   </div>
                 </div>
+
                 <div className="col-md-6 mb-3">
                   <div className="row align-items-center produc-categoria ms-2">
                     <div className="col-md-4">
@@ -253,6 +256,7 @@ export const DropdownCategorias = ({ codigoCategoria }: ProductosProps) => {
                     </div>
                   </div>
                 </div>
+
               </>
             )}
           </div>
@@ -319,34 +323,36 @@ export const dropdownProductos = () => {
       <div id="cards-productos">
         <div className='row center'>
           {conexion && hasData ? (
-            listaArticulos.slice(0, 5).map(item => {
-              const nombre = String(item.nombre);
-              const precio = Number(item.precio);
-              return (
-                <div className='col-2 p-3' key={item.id}>
-                  <div className='sec-pro h-100'>
-                    <div id='back-img' className='center container-fluid'>
-                      <Link to={"/productodetalle/" + item.id}>
-                        <img
-                          src={item.imagen === null
-                            ? API_URL + "img/nofoto.jpg"
-                            : API_URL + item.imagen}
-                          className="img-fluid p-4"
-                          alt={nombre}
-                        />
-                      </Link>
+            [...listaArticulos]
+              .sort(() => Math.random() - 0.5)
+              .slice(0, 5).map(item => {
+                const nombre = String(item.nombre);
+                const precio = Number(item.precio);
+                return (
+                  <div className='col-2 p-3' key={item.id}>
+                    <div className='sec-pro h-100'>
+                      <div id='back-img' className='center container-fluid'>
+                        <Link to={"/productodetalle/" + item.id}>
+                          <img
+                            src={item.imagen === null
+                              ? API_URL + "img/nofoto.jpg"
+                              : API_URL + item.imagen}
+                            className="img-fluid p-4"
+                            alt={nombre}
+                          />
+                        </Link>
+                      </div>
+                      <p className='text-center nombre-productos fs-6 fsnombre mt-3'>
+                        {nombre || "Nombre no disponible"}
+                      </p>
+                      <div className="center">
+                        {renderStars(item.rating)}
+                      </div>
+                      <p className='precio-produc center'>S/ {precio}</p>
                     </div>
-                    <p className='text-center nombre-productos fs-6 fsnombre mt-3'>
-                      {nombre || "Nombre no disponible"}
-                    </p>
-                    <div className="center">
-                      {renderStars(item.rating)}
-                    </div>
-                    <p className='precio-produc center'>S/ {precio}</p>
                   </div>
-                </div>
-              );
-            })
+                );
+              })
           ) : (
             // Fallback: sin conexión o sin datos
             <>
@@ -355,7 +361,7 @@ export const dropdownProductos = () => {
                   <div className='sec-pro h-100'>
                     <div id='back-img' className='center container-fluid'>
                       <img
-                        src={API_URL + "img/nofoto.jpg"}
+                        src={nofoto}
                         className="img-fluid p-4"
                         alt="Sin conexión"
                       />
@@ -433,7 +439,7 @@ export const DropdownTopDeals = () => {
   return (
     <div className="dropdown-menu mega-menuT">
       <div className="row">
-        <div className="col-md-6 p-4">
+        <div className="cont-shop-deals p-4 justify-content-center">
           <h3 className='categ-titul center mb-4'>Shop By</h3>
 
           <div className="row">
@@ -465,7 +471,7 @@ export const DropdownTopDeals = () => {
                     <div className="h-100 text-center">
                       <div className="card-img-top d-flex justify-content-center align-items-center p-3 img-deals-back">
                         <img
-                          src={API_URL + "img/nofoto.jpg"}
+                          src={nofoto}
                           className="img-fluid img-deal-off"
                           alt="Sin conexión"
                         />
@@ -518,7 +524,7 @@ export const DropdownTopDeals = () => {
                   <div className="row align-items-center produc-categoria ms-2">
                     <div className="col-md-4">
                       <img id='back-img-categ'
-                        src={API_URL + "img/nofoto.jpg"}
+                        src={nofoto}
                         className="img-fluid imgcategorias p-2"
                         alt="Sin conexión"
                       />
@@ -533,7 +539,7 @@ export const DropdownTopDeals = () => {
                   <div className="row align-items-center produc-categoria ms-2">
                     <div className="col-md-4">
                       <img id='back-img-categ'
-                        src={API_URL + "img/nofoto.jpg"}
+                        src={nofoto}
                         className="img-fluid imgcategorias p-2"
                         alt="Sin conexión"
                       />
@@ -549,7 +555,7 @@ export const DropdownTopDeals = () => {
                   <div className="row align-items-center produc-categoria ms-2">
                     <div className="col-md-4">
                       <img id='back-img-categ'
-                        src={API_URL + "img/nofoto.jpg"}
+                        src={nofoto}
                         className="img-fluid imgcategorias p-2"
                         alt="Sin conexión"
                       />
@@ -564,7 +570,7 @@ export const DropdownTopDeals = () => {
                   <div className="row align-items-center produc-categoria ms-2">
                     <div className="col-md-4">
                       <img id='back-img-categ'
-                        src={API_URL + "img/nofoto.jpg"}
+                        src={nofoto}
                         className="img-fluid imgcategorias p-2"
                         alt="Sin conexión"
                       />
@@ -580,7 +586,7 @@ export const DropdownTopDeals = () => {
                   <div className="row align-items-center produc-categoria ms-2">
                     <div className="col-md-4">
                       <img id='back-img-categ'
-                        src={API_URL + "img/nofoto.jpg"}
+                        src={nofoto}
                         className="img-fluid imgcategorias p-2"
                         alt="Sin conexión"
                       />
@@ -595,7 +601,7 @@ export const DropdownTopDeals = () => {
                   <div className="row align-items-center produc-categoria ms-2">
                     <div className="col-md-4">
                       <img id='back-img-categ'
-                        src={API_URL + "img/nofoto.jpg"}
+                        src={nofoto}
                         className="img-fluid imgcategorias p-2"
                         alt="Sin conexión"
                       />

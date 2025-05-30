@@ -19,5 +19,5 @@ export const navItemsRight: NavItem[] = [
     { label: "", url: "/search", icon: "bi-search" },
     { label: "", url: "/sesion", icon: "bi-person" },
     { label: "", url: "/favourites", icon: "bi-heart" },
-    { label: "", url: "/cart", icon: "bi-bag-dash" },
+    { label: "", url: "", icon: "bi-bag-dash" },
 ]

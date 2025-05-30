@@ -1,0 +1,11 @@
+.producto-review{
+    margin-left: -51px;
+    color: var(--color2);
+}
+.producto-review:hover{
+    color: var(--color-negro);
+}
+.cont-artic {
+    flex: 0 0 auto;
+    width: 31.666667%;
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { ItemCarrito } from "../types/ItemCarrito"
 import './Cart.css'
 import { API_URL } from "../utils"
+import { Link } from "react-router-dom"
 
 export const Cart = () => {
 
@@ -86,9 +87,7 @@ export const Cart = () => {
 
   }
 
-
-
-
+  const [animatedProgress, setAnimatedProgress] = useState(0);
 
   const eliminarItem = (item: ItemCarrito) => {
     const carritoMenos = listaItems.filter(i => i.idcarrito != item.idcarrito)
@@ -97,7 +96,14 @@ export const Cart = () => {
     calcularTotal(carritoMenos)
   }
 
+  useEffect(() => {
+    setAnimatedProgress(0); // Reinicia a 0 para animar desde el inicio
+    const timeout = setTimeout(() => {
+      setAnimatedProgress(progress); // Luego de un pequeño delay, anima al valor real
+    }, 700); // 700ms para asegurar el reinicio visual
 
+    return () => clearTimeout(timeout);
+  }, [total]);
 
   const calcularTotal = (datosCarrito: ItemCarrito[]) => {
     const sumTotal = datosCarrito.reduce(
@@ -105,7 +111,7 @@ export const Cart = () => {
     setTotal(sumTotal)
   }
 
-  const FREE_DELIVERY_AMOUNT = 100; // S/ 100 para delivery gratis
+  const FREE_DELIVERY_AMOUNT = 200; // S/ 200 para delivery gratis
   const progress = Math.min((total / FREE_DELIVERY_AMOUNT) * 100, 100);
 
   return (
@@ -130,31 +136,30 @@ export const Cart = () => {
                 style={{ height: "10px", overflow: "visible" }}
               >
                 <div
-                  className="progress-bar bg-warning"
+                  className={`progress-bar ${animatedProgress === 100 ? 'bg-success' : 'bg-warning'}`}
                   role="progressbar"
                   style={{
-                    width: `${progress}%`,
+                    width: `${animatedProgress}%`,
                     transition: "width 0.5s"
                   }}
-                  aria-valuenow={progress}
+                  aria-valuenow={animatedProgress}
                   aria-valuemin={0}
                   aria-valuemax={100}
                 ></div>
-                {/* Icono encima y fuera de la barra */}
                 <span
                   style={{
                     position: "absolute",
-                    left: `calc(${progress}% - 18px)`,
+                    left: `calc(${animatedProgress}% - 18px)`,
                     top: "-11px",
                     transition: "left 0.5s",
                     zIndex: 10,
                     background: "white",
                     borderRadius: "50%",
-                    border: "2px solid #ffc107",
+                    border: animatedProgress === 100 ? "2px solid #198754" : "2px solid #ffc107",
                     padding: "2px 7px"
                   }}
                 >
-                  <i className="bi bi-truck fs-6 text-warning"></i>
+                  <i className={`bi bi-truck fs-6 ${animatedProgress === 100 ? "text-success" : "text-warning"}`}></i>
                 </span>
               </div>
 
@@ -191,17 +196,19 @@ export const Cart = () => {
       {/* Subtotal y botones fuera del offcanvas-body */}
       {listaItems.length > 0 && (
         <div className="col-md-12 cont-padd2">
-          
-            <div className="row">
-              <hr />
-              <h5 className="col subtotal">Subtotal:</h5>
-              <p className="col text-end">S/ {total.toFixed(2)}</p>
-            </div>
-            <div className="row">
-              <button className="col boton-view-offcan me-1">View Cart</button>
-              <button className="col boton-check-offcan ms-1">Checkout</button>
-            </div>
-          
+
+          <div className="row">
+            <hr />
+            <h5 className="col subtotal">Subtotal:</h5>
+            <p className="col text-end">S/ {total.toFixed(2)}</p>
+          </div>
+          <div className="row">
+            <Link to="/viewcart" className="col boton-view-offcan me-1 btn btn-primary text-center">
+              View Cart
+            </Link>
+            <button className="col boton-check-offcan ms-1">Checkout</button>
+          </div>
+
         </div>
       )}
     </>

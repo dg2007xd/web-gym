@@ -59,7 +59,7 @@ function Shop() {
     return (
         <>
             <PageHeader pageTitle="Shop" />
-            <section id="store" className='padded padded-inverso'>
+            <section id="store" className='padded padded-inverso-shop'>
                 <div className="container">
                     <div className="row">
                         <div className="col-3">
