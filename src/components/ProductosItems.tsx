@@ -67,7 +67,7 @@ function ProductosItems({ codigoCategoria }: ProductosProps) {
                                     </button>
 
                                 </div>
-                                
+
                                 <div className=" card-body">
                                     <p className='text-center fs-6 mt-0 mb-0'>{item.nombre || "Nombre no disponible"}</p>
                                     <div className="center">{renderStars(item.rating)}</div>
@@ -170,7 +170,13 @@ function ProductosItems({ codigoCategoria }: ProductosProps) {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Añadir al carrito</button>
+                            <button
+                                type="button"
+                                className="btn btn-primary"
+                                onClick={() => productoSeleccionado && agregarCarrito(productoSeleccionado, 1)}
+                            >
+                                Añadir al carrito
+                            </button>
                         </div>
                     </div>
                 </div>

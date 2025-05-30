@@ -24,13 +24,13 @@ function Productos({ codigoCategoria }: ProductosProps) {
   }, []);
 
   useEffect(() => {
-  if (listaArticulos.length > 0) {
-    const aleatorios = [...listaArticulos]
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 8);
-    setProductosRandom(aleatorios);
-  }
-}, [listaArticulos, categoriaSeleccionada]);
+    if (listaArticulos.length > 0) {
+      const aleatorios = [...listaArticulos]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 8);
+      setProductosRandom(aleatorios);
+    }
+  }, [listaArticulos, categoriaSeleccionada]);
 
   const leerServicio = () => {
 
@@ -75,51 +75,51 @@ function Productos({ codigoCategoria }: ProductosProps) {
       <div id="cards-productos">
         <div className='row center'>
           {productosRandom.map(item => {
-              const nombre = String(item.nombre);
-              const precio = Number(item.precio);
-              return (
-                <div className='col-3 p-3' key={item.id}>
-                  <div className='sec-pro card h-100'>
-                    <div id='back-img' className='center container-fluid'>
-                      <Link to={`/productodetalle/${item.id}`}>
-                        <img
-                          src={item.imagen === null
-                            ? API_URL + "img/nofoto.jpg"
-                            : API_URL + item.imagen}
-                          className="img-fluid p-3"
-                          alt={nombre}
-                        />
-                      </Link>
-                      <i className="fw-bold bi bi-heart icon-favourite"></i>
+            const nombre = String(item.nombre);
+            const precio = Number(item.precio);
+            return (
+              <div className='col-3 p-3' key={item.id}>
+                <div className='sec-pro card h-100'>
+                  <div id='back-img' className='center container-fluid'>
+                    <Link to={`/productodetalle/${item.id}`}>
+                      <img
+                        src={item.imagen === null
+                          ? API_URL + "img/nofoto.jpg"
+                          : API_URL + item.imagen}
+                        className="img-fluid p-3"
+                        alt={nombre}
+                      />
+                    </Link>
+                    <i className="fw-bold bi bi-heart icon-favourite"></i>
 
-                      <i className="bi bi-bar-chart icon-bar"></i>
+                    <i className="bi bi-bar-chart icon-bar"></i>
 
-                      <i
-                        className="bi bi-eye icon-quick-view"
-                        title="Vista rápida"
-                        data-bs-toggle="modal"
-                        data-bs-target="#quickViewModal"
-                        onClick={() => seleccionarProducto(item.id)}
-                      ></i>
+                    <i
+                      className="bi bi-eye icon-quick-view"
+                      title="Vista rápida"
+                      data-bs-toggle="modal"
+                      data-bs-target="#quickViewModal"
+                      onClick={() => seleccionarProducto(item.id)}
+                    ></i>
 
-                      <button className="boton-agregar-home boton-add-home" title="Añadir al carrito"
-                        onClick={() => agregarCarrito(item, 1)}>ADD TO CART
-                      </button>
+                    <button className="boton-agregar-home boton-add-home" title="Añadir al carrito"
+                      onClick={() => agregarCarrito(item, 1)}>ADD TO CART
+                    </button>
 
-                    </div>
-                    
-                    <p className='text-center nombre-productos fs-6 fsnombre mt-3'>
-                      {nombre || "Nombre no disponible"}
-                    </p>
-                    <div className="center">
-                      {renderStars(item.rating)}
-                    </div>
-                    <p className='precio-produc center'>S/ {precio}</p>
                   </div>
+
+                  <p className='text-center nombre-productos fs-6 fsnombre mt-3'>
+                    {nombre || "Nombre no disponible"}
+                  </p>
+                  <div className="center">
+                    {renderStars(item.rating)}
+                  </div>
+                  <p className='precio-produc center'>S/ {precio}</p>
                 </div>
-              )
-            }
-            )}
+              </div>
+            )
+          }
+          )}
         </div>
       </div>
     );
@@ -187,7 +187,13 @@ function Productos({ codigoCategoria }: ProductosProps) {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Añadir al carrito</button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => productoSeleccionado && agregarCarrito(productoSeleccionado, 1)}
+              >
+                Añadir al carrito
+              </button>
             </div>
           </div>
         </div>
