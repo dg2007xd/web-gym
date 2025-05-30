@@ -71,6 +71,8 @@
     width: 105rem;
     position: absolute;
     left: -52px;
+    box-shadow: 0px -1px 5px #E0E0E0;
+    border: 0;
 }
 
 @media (max-width: 1749px) {
@@ -101,6 +103,7 @@
         position: absolute !important;
         left: -545px !important;
     }
+
     .mega-menuT .cont-shop-deals {
         flex: 0 0 auto;
         width: 50% !important;
@@ -268,6 +271,8 @@
     width: 105rem;
     position: absolute;
     left: -133px;
+    box-shadow: 0px -1px 5px #E0E0E0;
+    border: 0;
 }
 
 
