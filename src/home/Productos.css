@@ -91,7 +91,7 @@ article .active {
     background-color: var(--color-blanco);
     padding: 5px 10px;
     border-radius: 50%;
-    transition: all .5s ease-in-out;
+    transition: all .3s ease-in-out;
     cursor: pointer;
     z-index: 2;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 3px;
@@ -110,7 +110,7 @@ article .active {
     background-color: var(--color-blanco);
     padding: 5px 10px;
     border-radius: 50%;
-    transition: all .5s ease-in-out;
+    transition: all .3s ease-in-out;
     cursor: pointer;
     z-index: 2;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 3px;
@@ -134,7 +134,7 @@ article .active {
     background-color: var(--color-blanco);
     padding: 5px 10px;
     border-radius: 50%;
-    transition: all .5s ease-in-out;
+    transition: all .3s ease-in-out;
     cursor: pointer;
     z-index: 2;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 3px;
