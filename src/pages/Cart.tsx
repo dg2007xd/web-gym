@@ -125,7 +125,7 @@ export const Cart = () => {
             <i className="bi bi-cart-x fs-1 text-secondary mb-3"></i>
             <h5 className="text-center fw-bold mb-2">¡Tu carrito está vacío!</h5>
             <p className="text-center text-muted">Agrega productos para verlos aquí.</p>
-            <a href="/tienda"><button className="boton-check boton-buy-now uppercase">Empieza a comprar ahora</button></a>
+            <Link to="/tienda"><button className="boton-check boton-buy-now uppercase">Empieza a comprar ahora</button></Link>
           </div>
         ) : (
           <>
