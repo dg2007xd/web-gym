@@ -1,7 +1,8 @@
 import { Articulo } from "../types/Articulo"
 import { ItemCarrito } from "../types/ItemCarrito"
 
-export const API_URL = "http://localhost/PHPgym/"
+//export const API_URL = "http://localhost/PHPgym/"
+export const API_URL = "https://dg2007xd.alwaysdata.net/"
 
 export const agregarCarrito = (producto: Articulo, cantidadProducto: number) => {
 
