@@ -6,7 +6,7 @@ import { Categoria } from "../types/Categoria";
 
 function Shop() {
     const [listaCategorias, setListaCategorias] = useState<Categoria[]>([]);
-    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<Categoria | null>(null);
+    const [categoriasSeleccionadas, setCategoriasSeleccionadas] = useState<Categoria[]>([]);
     const [totalGeneral, setTotalGeneral] = useState(0);
 
     useEffect(() => {
@@ -27,7 +27,6 @@ function Shop() {
             .then((data: Categoria[]) => {
                 console.log(data);
                 setListaCategorias(data);
-                setCategoriaSeleccionada(data[0]);
             })
             .catch((error) => {
                 console.error("Error consultando datos:", error);
@@ -37,24 +36,34 @@ function Shop() {
     const dibujarLista = () => {
         return (
             <ul className="list-group">
-
-                {listaCategorias.map(item => (
-                    <li key={item.idcategoria}
-                        className={"list-group-item" + (categoriaSeleccionada?.idcategoria === item.idcategoria ? " active" : "")}
-
-                        onClick={() => seleccionarCategoria(item)}>
-                        {item.nombrecategoria} ({item.total})
-                    </li>
-                ))}
-
+                {listaCategorias.map(item => {
+                    const seleccionada = categoriasSeleccionadas.some(cat => cat.idcategoria === item.idcategoria);
+                    return (
+                        <li
+                            key={item.idcategoria}
+                            className={"list-group-item" + (seleccionada ? " active" : "")}
+                            onClick={() => toggleCategoria(item)}
+                            style={{ cursor: "pointer" }}
+                        >
+                            {item.nombrecategoria} ({item.total})
+                        </li>
+                    );
+                })}
             </ul>
-        )
+        );
     }
 
-    const seleccionarCategoria = (item: Categoria) => {
-        console.log(item);
-        setCategoriaSeleccionada(item);
-    }
+    const toggleCategoria = (item: Categoria) => {
+        setCategoriasSeleccionadas(prev => {
+            if (prev.some(cat => cat.idcategoria === item.idcategoria)) {
+                // Quitar si ya está seleccionada
+                return prev.filter(cat => cat.idcategoria !== item.idcategoria);
+            } else {
+                // Agregar si no está seleccionada
+                return [...prev, item];
+            }
+        });
+    };
 
     return (
         <>
@@ -68,10 +77,16 @@ function Shop() {
                         </div>
                         <div className="col-9">
                             <h3>
-                                Mostrando 1–{categoriaSeleccionada?.total || 0} de {totalGeneral} resultados
+                                Mostrando productos de {categoriasSeleccionadas.length} categoría(s)
+                                {totalGeneral > 0 && (
+                                    <span className="ms-2 text-muted">
+                                        (Total productos: {totalGeneral})
+                                    </span>
+                                )}
                             </h3>
-
-                            <ProductosItems codigoCategoria={categoriaSeleccionada?.idcategoria || 0} />
+                            {categoriasSeleccionadas.length > 0 && (
+                                <ProductosItems codigosCategoria={categoriasSeleccionadas.map(cat => cat.idcategoria)} />
+                            )}
                         </div>
                     </div>
 

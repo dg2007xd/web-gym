@@ -14,16 +14,21 @@
   --color-gris-claro: #CCCCCC;
   --color-gris-oscuro: #333333;
 }
-.card{
+
+
+.card {
   --bs-card-border-color: 0 !important;
   --bs-card-border-radius: 0 !important;
 }
+
 .capitalize {
   text-transform: capitalize;
 }
-.uppercase{
+
+.uppercase {
   text-transform: uppercase;
 }
+
 .blanco {
   color: var(--color-blanco);
 }
@@ -93,6 +98,7 @@ ul {
   margin: auto;
   max-width: 60%;
 }
+
 .padded-inverso-shop {
   justify-content: center;
   margin: auto;
@@ -183,10 +189,11 @@ ul {
 .no-dropdown-icon::after {
   display: none !important;
 }
+
 .offcanvas-body {
-    flex-grow: 1;
-    padding: 0 0;
-    overflow-y: auto;
+  flex-grow: 1;
+  padding: 0 0;
+  overflow-y: auto;
 }
 
 @media (min-width: 1750px) {

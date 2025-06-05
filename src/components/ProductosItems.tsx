@@ -4,31 +4,33 @@ import { Articulo } from "../types/Articulo";
 import { Link } from "react-router-dom";
 import './ProductosItems.css'
 
+// Cambia la interfaz de props:
 interface ProductosProps {
-    codigoCategoria: number;
+    codigosCategoria: number[];
 }
 
-function ProductosItems({ codigoCategoria }: ProductosProps) {
-    console.log(codigoCategoria);
+function ProductosItems({ codigosCategoria }: ProductosProps) {
     const [listaArticulos, setListaArticulos] = useState<Articulo[]>([]);
     const [productoSeleccionado, setProductoSeleccionado] = useState<Articulo | null>(null);
 
-
     useEffect(() => {
-        leerServicio(codigoCategoria);
-    }, [codigoCategoria]);
+        if (codigosCategoria.length === 0) {
+            setListaArticulos([]); // Si no hay categorías, no mostrar productos
+            return;
+        }
+        leerServicio(codigosCategoria);
+    }, [codigosCategoria]);
 
-    const leerServicio = async (idcategoria: number) => {
-
+    const leerServicio = async (idsCategoria: number[]) => {
         try {
-            const response = await fetch(API_URL + "productos.php?idcategoria=" + idcategoria)
+            // Une los IDs con coma para el backend
+            const response = await fetch(API_URL + "productos.php?idcategoria=" + idsCategoria.join(","));
             const data: Articulo[] = await response.json();
-            console.log(data);
             setListaArticulos(data);
         } catch (error) {
             console.log("Error consultando datos:", error);
         }
-    }
+    };
 
 
     const dibujarLista = () => {

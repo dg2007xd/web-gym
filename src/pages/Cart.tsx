@@ -89,12 +89,17 @@ export const Cart = () => {
 
   const [animatedProgress, setAnimatedProgress] = useState(0);
 
-  const eliminarItem = (item: ItemCarrito) => {
-    const carritoMenos = listaItems.filter(i => i.idcarrito != item.idcarrito)
-    setListaItems(carritoMenos)
-    sessionStorage.setItem("carritocompras", JSON.stringify(carritoMenos))
-    calcularTotal(carritoMenos)
-  }
+  
+
+const eliminarItem = (item: ItemCarrito) => {
+  const carritoMenos = listaItems.filter(i => i.idcarrito != item.idcarrito)
+  setListaItems(carritoMenos)
+  sessionStorage.setItem("carritocompras", JSON.stringify(carritoMenos))
+  calcularTotal(carritoMenos)
+  window.dispatchEvent(new Event("carritoActualizado")) // Notifica a Cart
+}
+
+
 
   useEffect(() => {
     setAnimatedProgress(0); // Reinicia a 0 para animar desde el inicio
