@@ -28,10 +28,17 @@
 
 .bg-progreso {
   background: #fff;
-  border: 2px dashed #4CAE50;
+  border: 1px dashed rgb(255, 193, 7);
   border-radius: 8px;
   padding: 30px 30px 30px 30px;
   margin-bottom: 24px;
+}
+.bg-progreso-success {
+  border-color: #38d39f !important; /* verde */
+}
+.bg-progreso-warning {
+  border-color: rgb(255, 193, 7) !important; /* amarillo */
+
 }
 
 .progress {

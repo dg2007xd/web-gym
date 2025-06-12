@@ -211,7 +211,7 @@ function ViewCart() {
             {/* Totales y barra de progreso */}
             <div className="col-lg-4">
               {/* Barra de progreso de envío gratis */}
-              <div className="mb-3 bg-progreso">
+              <div className={`mb-3 bg-progreso ${animatedProgress === 100 ? 'bg-progreso-success' : 'bg-progreso-warning'}`}>
                 <div
                   className="progress position-relative"
                   style={{ height: "10px", overflow: "visible" }}
@@ -254,7 +254,7 @@ function ViewCart() {
                       <span className="fw-bold text-color2">
                         S/ {(FREE_DELIVERY_AMOUNT - total)}
                       </span>{" "}
-                      for <span className="fw-bold text-warning">FREE Delivery!</span>
+                      for <span>FREE Delivery!</span>
                     </>
                   )}
                 </div>
