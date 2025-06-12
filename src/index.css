@@ -15,6 +15,54 @@
   --color-gris-oscuro: #333333;
 }
 
+.text-color2 {
+  color: var(--color2) !important;
+  text-decoration: none;
+}
+.gris{
+  color: #979796;
+}
+
+.boton-color2 {
+  background-color: var(--color2);
+  color: white;
+  border-radius: 0;
+}
+.change-address {
+  color: var(--color2) !important;
+}
+.change-address:hover{
+  color: black !important;
+}
+.precio-design {
+  color: var(--color2);
+  font-weight: 500;
+  font-family: 'Oswald', sans-serif;
+  line-height: 1.5em;
+}
+
+.icon-delete {
+  display: block;
+  font-size: 13px;
+  height: 24px;
+  width: 24px;
+  text-align: center;
+  line-height: 22px;
+  border-radius: 100%;
+  color: #da3f3f !important;
+  text-decoration: none;
+  font-weight: 600;
+  border: 0;
+  font-family: system-ui, sans-serif;
+  transition: all .1s linear;
+  cursor: pointer;
+}
+
+.icon-delete:hover {
+  color: #fff !important;
+  background: #da3f3f;
+  text-decoration: none
+}
 
 .card {
   --bs-card-border-color: 0 !important;
@@ -99,6 +147,12 @@ ul {
   max-width: 60%;
 }
 
+.padded-inverso-viewcart {
+  justify-content: center;
+  margin: auto;
+  max-width: 65%;
+}
+
 .padded-inverso-shop {
   justify-content: center;
   margin: auto;
@@ -146,7 +200,9 @@ ul {
   display: flex;
   justify-content: end;
 }
-
+.hover-negro:hover{
+  color: black;
+}
 
 
 .before-header-style {
@@ -195,6 +251,39 @@ ul {
   padding: 0 0;
   overflow-y: auto;
 }
+
+.form-check-input:checked[type=checkbox] {
+  --bs-form-check-bg-image: url(data:image/svg+xml,%3Csvg%20class%3D%22base-svg-icon%20base-check-svg%22%20fill%3D%22currentColor%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ctitle%3EDone%3C%2Ftitle%3E%3Cpath%20d%3D%22M14%202.5l-8.5%208.5-3.5-3.5-1.5%201.5%205%205%2010-10z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E);
+}
+
+.form-check-input:checked[type=checkbox] {
+  background-color: white;
+  border-color: #CACCD1;
+}
+
+.form-check-input[type=checkbox] {
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.form-check .form-check-input:hover {
+  border-color: black;
+}
+
+.form-check .form-check-label:hover {
+  color: var(--color2);
+  text-decoration: underline;
+}
+
+.form-check-input:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #CACCD1;
+}
+
+
+
+
 
 @media (min-width: 1750px) {
 

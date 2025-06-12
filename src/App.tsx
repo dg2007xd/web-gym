@@ -9,6 +9,7 @@ import Shop from './pages/Shop'
 import ProductDetails from './pages/ProductDetails'
 import Cart from './pages/Cart'
 import ViewCart from './pages/ViewCart'
+import Contact from './pages/Contact'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/productodetalle/:id" element={<ProductDetails />} />
             <Route path="/clientes" element={<Clientes />} />
             <Route path="/viewcart" element={<ViewCart />} />
+            <Route path="/contacto" element={<Contact />} />
             
           </Routes>     
         </main>

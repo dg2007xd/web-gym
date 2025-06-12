@@ -58,7 +58,7 @@ export const Cart = () => {
                     </td>
                     <td className="text-end align-top">
                       <i
-                        className="bi bi-x-lg text-danger icon-delete"
+                        className="bi bi-x-lg icon-delete"
                         title="Eliminar item"
                         style={{ cursor: "pointer" }}
                         onClick={() => eliminarItem(item)}

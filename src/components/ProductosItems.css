@@ -1,11 +1,88 @@
-.producto-review{
+.producto-review {
     margin-left: -51px;
-    color: var(--color2);
+    color: black;
+    text-decoration: none;
 }
-.producto-review:hover{
-    color: var(--color-negro);
-}
+
 .cont-artic {
     flex: 0 0 auto;
     width: 31.666667%;
+}
+
+.ver-boton {
+    border-radius: 0;
+    background-color: var(--color2);
+    border: none;
+    margin-left: -1px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    padding: 9px 24px 9px 24px;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+}
+
+.img-back {
+    background: #F5F4F5;
+}
+
+.quickview-all {
+    display: flex;
+    min-height: 340px;
+    min-width: 400px;
+}
+
+.quickview-left {
+    flex: 1 1 0;
+    background: #fafbfc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    border-right: 1px solid #eee;
+}
+
+.quickview-right {
+    flex: 1 1 0;
+    padding: 2rem 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img-quickview {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.boton-quickview {
+    background-color: var(--color2);
+    color: white;
+    border-radius: 0;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 6px 24px 6px 24px;
+}
+.boton-quickview:hover {
+    background-color: black;
+    color: white;
+}
+
+.modal-content {
+    border-radius: 0 !important;
+}
+.desc-text{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    color: #666666;
 }

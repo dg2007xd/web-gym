@@ -4,7 +4,40 @@ import payment from '../assets/images/payment.png'
 function MainFooter() {
     return (
         <footer id="main-footer">
-            <div className="container ">
+            <div className="container">
+
+                <div id="store" className='padded'>
+                    {/* Newsletter section */}
+                    <div className="newsletter-section site-footer-row-container-inner" >
+                        <div className="container">
+                            <div className="row justify-content-center">
+                                <div className="col-12 text-center mt-5">
+                                    <i className="bi bi-envelope mail-go"></i>
+                                    <h2 className="fw-bold mt-1 text-foo">SUBSCRIBE TO OUR NEWSLETTER</h2>
+                                    <p className="mb-4" style={{ color: "#555" }}>
+                                        Subscribe to our latest newsletter to get news about special discounts.
+                                    </p>
+                                    <form className="d-flex justify-content-center" style={{ maxWidth: 700, margin: "0 auto" }}>
+                                        <input
+                                            type="email"
+                                            className="form-control form-control-lg me-2"
+                                            placeholder="Email"
+                                            style={{ borderRadius: 0, fontSize: "1.1rem" }}
+                                        />
+                                        <button
+                                            type="submit"
+                                            className="btn btn-primary btn-lg suscribe-boton"
+                                        >
+                                            SUBSCRIBE
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div className="row center align-items-start">
                     <div className="col-2">
                         <h5>About Information</h5>
@@ -70,11 +103,11 @@ function MainFooter() {
                 <div className="row">
                     <div className="col">
                         <div className='social-link center'>
-                        <a href="#"><i className="bi bi-facebook"></i></a>
-                        <a href="#"><i className="bi bi-twitter-x"></i></a>
-                        <a href="#"><i className="bi bi-instagram"></i></a>
-                        <a href="#"><i className="bi bi-pinterest"></i></a>
-                        <a href="#"><i className="bi bi-youtube"></i></a>
+                            <a href="#"><i className="bi bi-facebook"></i></a>
+                            <a href="#"><i className="bi bi-twitter-x"></i></a>
+                            <a href="#"><i className="bi bi-instagram"></i></a>
+                            <a href="#"><i className="bi bi-pinterest"></i></a>
+                            <a href="#"><i className="bi bi-youtube"></i></a>
                         </div>
                     </div>
                     <div className="col center">© 2025 Plumbix Demo - WordPress Theme by Avanam</div>

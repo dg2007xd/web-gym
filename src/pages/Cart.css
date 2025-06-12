@@ -1,12 +1,4 @@
-.icon-delete{
-    cursor: pointer;
-    transition: all .3s ease-in-out;
-    display: inline-block;
-}
-.icon-delete:hover{
-    color: var(--color4);
-    transform: rotate(90deg);
-}
+
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button{
     -webkit-appearance: none;

@@ -140,13 +140,13 @@ function ProductDetails() {
     <section className="padded">
       <div className="container">
         <div className="row">
-          <div className="col">
+          <div className="col d-flex align-items-center justify-content-center">
             <img src={productoSeleccionado?.imagen
               ? API_URL + productoSeleccionado.imagen
               : API_URL + "imagenes/nofoto.jpg"} className="img-fluid" width={512} height={512} alt="..." />
           </div>
           <div className="col">
-            <h2 className="capitalize">{productoSeleccionado?.nombre}</h2>
+            <h2 className="capitalize nombre-detalle">{productoSeleccionado?.nombre}</h2>
             <table className="table">
               {productoSeleccionado && (<tbody>
                 <tr>
@@ -155,7 +155,7 @@ function ProductDetails() {
                 </tr>
                 <tr>
                   <th>Precio</th>
-                  <td className="fw-bold">S/
+                  <td className="fw-bold text-color2">S/
                     {precio === 0
                       ? "Verifica la conexion"
                       : precio.toFixed(2)
@@ -170,7 +170,7 @@ function ProductDetails() {
                   <th>Valoración</th>
                   <td>
                     {renderStars(productoSeleccionado?.rating)}
-                    <span className="ms-2">({productoSeleccionado?.rating}) Calificaciones</span>
+                    <span className="ms-2 text-color2">({productoSeleccionado?.rating} review)</span>
                   </td>
                 </tr>
                 <tr>
@@ -209,8 +209,8 @@ function ProductDetails() {
               </tbody>)}
             </table>
             {!itemEnCarrito && (
-              <button className="btn btn-primary" onClick={agregarAlCarrito}>
-                Agregar al carrito
+              <button className="btn boton-details uppercase" onClick={agregarAlCarrito}>
+                Add to cart
               </button>
             )}
           </div>

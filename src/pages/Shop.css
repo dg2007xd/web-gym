@@ -1,0 +1,173 @@
+.Categorie-tip {
+    background-color: #f5f5f5;
+    color: black;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Open sans', sans-serif;
+    text-transform: capitalize;
+    transition: all 0.2s, color 0.2s;
+    cursor: pointer;
+}
+
+.Categorie-tip .X-tip {
+    font-size: 1.5em;
+    color: black;
+    transition: color 0.2s;
+}
+
+/* Hover en todo el chip */
+.Categorie-tip:hover {
+    background-color: #222222;
+    color: #fff;
+}
+
+/* Cambia el color del icono cuando el chip está en hover */
+.Categorie-tip:hover .X-tip {
+    color: #fff;
+}
+
+.clear-boton {
+    text-decoration: underline;
+    color: var(--color2);
+    margin-bottom: 0.5em;
+}
+
+.clear-boton:hover {
+    color: black;
+}
+
+.category-box {
+    background: #f5f5f5;
+}
+.category-box .fw-bold {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.categorias-animadas {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s;
+    pointer-events: none;
+}
+
+.categorias-animadas.show {
+    max-height: 500px; /* Ajusta según tu contenido */
+    opacity: 1;
+    pointer-events: auto;
+}
+/* Filtros animados */
+.filtro-animado {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.filtro-animado.show {
+    max-height: 500px; /* Ajusta según el contenido */
+    opacity: 1;
+    pointer-events: auto;
+}
+.linea-box{
+    color: #D0D1D0;
+}
+.header-filter{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    color: black;
+}
+/* Filtros laterales */
+.filter-box {
+    background: #f7f7f7;
+    margin-bottom: 1.5rem;
+}
+
+.filter-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.filter-toggle {
+    font-size: 1.5rem;
+    line-height: 1;
+    user-select: none;
+}
+
+.filter-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.filter-link {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #222;
+    padding: 2px 0;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.filter-link.active,
+.filter-link:hover {
+    color: #1a33ff;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.filter-colors {
+    gap: 0.7rem;
+}
+
+.color-circle {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid #bbb;
+    cursor: pointer;
+    transition: border 0.2s;
+}
+
+.color-black { background: #222; border-color: #222; }
+.color-gray { background: #888; }
+.color-gold { background: #d4b04c; }
+.color-lightgray { background: #d6d6c2; }
+.color-silver { background: #ccc; }
+.color-white { background: #fff; border: 2px solid #bbb; }
+
+.color-circle:hover,
+.color-circle:focus {
+    border: 2px solid #1a33ff;
+}
+
+.filter-materials {
+    gap: 0.5rem;
+}
+
+.material-chip {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 4px 14px;
+    font-size: 1rem;
+    color: #222;
+    cursor: pointer;
+    transition: background 0.2s, border 0.2s;
+    margin-bottom: 0.3rem;
+    display: inline-block;
+}
+
+.material-chip:hover,
+.material-chip:focus {
+    background: black;
+    border-color: none;
+    color: white;
+    text-decoration: underline;
+}

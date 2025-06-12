@@ -2,6 +2,32 @@
     display: block;
 }
 
+.cart-icon-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.cart-badge {
+    pointer-events: none;
+    position: absolute;
+    top: 3px;
+    right: 0px;
+    background: #1a33ff;
+    color: #fff;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    padding: 0;
+    text-align: center;
+    letter-spacing: 0;
+    border-radius: 50%;
+    font-weight: 400;
+}
 
 .sticky-top {
     background-color: var(--color1);
@@ -59,8 +85,8 @@
 
 .icono {
     color: black;
-    padding-left: 30px;
-    font-size: 20px;
+    padding-left: 28px;
+    font-size: 23px;
     font-weight: bold;
 }
 

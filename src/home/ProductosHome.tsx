@@ -128,78 +128,62 @@ function Productos({ codigoCategoria }: ProductosProps) {
 
 
   const showQuickView = () => {
-    const precio = Number(productoSeleccionado?.precio)
-    return (
-      <div className="modal fade" id="quickViewModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog modal-dialog-centered modal-lg">
-          <div className="modal-content">
-            <div className="modal-header">
-              <div className="row">
-                <h3 className="modal-title fs-5" id="exampleModalLabel">{productoSeleccionado?.nombre}</h3>
-                <div className="row">
-                  <div className="col-sm-3 justify-content-start">{renderStars(productoSeleccionado?.rating ?? 0)}</div>
-                  <div className="col-sm-3 producto-review">({productoSeleccionado?.review} Reviews)</div>
+        const precio = Number(productoSeleccionado?.precio);
+        return (
+            <div className="modal fade" id="quickViewModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered modal-lg">
+                    <div className="modal-content">
+                        <div className="modal-body p-0">
+                            <div className="quickview-all">
+                                {/* Imagen izquierda */}
+                                <div className="quickview-left d-flex align-items-center justify-content-center">
+                                    <img
+                                        src={productoSeleccionado?.imagen
+                                            ? API_URL + productoSeleccionado.imagen
+                                            : API_URL + "imagenes/nofoto.jpg"}
+                                        className="img-fluid img-quickview"
+                                        alt={productoSeleccionado?.nombre}
+                                        
+                                    />
+                                </div>
+                                {/* Info derecha */}
+                                <div className="quickview-right p-4">
+                                    <h4 className="fw-bold mb-2">{productoSeleccionado?.nombre}</h4>
+                                    <div className="d-flex align-items-center mb-2">
+                                        <div>{renderStars(productoSeleccionado?.rating ?? 0)}</div>
+                                        <a
+                                            href="#"
+                                            className="ms-2 producto-review"
+                                        >
+                                            ({productoSeleccionado?.review ?? 0} review{(productoSeleccionado?.review ?? 0) !== 1 ? "s" : ""})
+                                        </a>
+                                    </div>
+                                    <div className="mb-3 precio-design">
+                                        S/ {precio.toFixed(2)}
+                                    </div>
+                                    <div className="mb-3 desc-text">
+                                        {productoSeleccionado?.descripcion}
+                                    </div>
+                                    <div className="d-flex gap-2">
+                                        <button
+                                            type="button"
+                                            className="btn mb-2 uppercase boton-quickview"
+                                            onClick={() => productoSeleccionado && agregarCarrito(productoSeleccionado, 1)}
+                                        >
+                                            Add to cart
+                                        </button>
+                                    </div>
+                                    <div className="gris capitalize">
+                                        Categoria: {productoSeleccionado?.nombrecategoria}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
             </div>
-            <div className="modal-body">
-
-              <div className="row">
-                <div className="col-md">
-                  <img src={productoSeleccionado?.imagen
-                    ? API_URL + productoSeleccionado.imagen
-                    : API_URL + "imagenes/nofoto.jpg"} className="img-fluid" alt="..." />
-                </div>
-                <div className="col-md">
-                  <table className="table">
-                    <tbody>
-
-
-                      <tr>
-                        <th>Categoría</th>
-                        <td className="capitalize">{productoSeleccionado?.nombrecategoria}</td>
-                      </tr>
-                      <tr>
-                        <th>Precio</th>
-                        <td>S/
-                          {precio === 0
-                            ? precio.toFixed(2)
-                            : precio.toFixed(2)
-                          }
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>Stock</th>
-                        <td>{productoSeleccionado?.stock}</td>
-                      </tr>
-                      <tr>
-                        <th>Descripcion</th>
-                        <td>{productoSeleccionado?.descripcion}</td>
-                      </tr>
-
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={() => productoSeleccionado && agregarCarrito(productoSeleccionado, 1)}
-              >
-                Añadir al carrito
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+        )
+    }
 
 
   return (

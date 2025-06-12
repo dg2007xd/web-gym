@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom"
 import './MainNav.css'
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import logo from '../assets/images/gym-logo.png'
 import { navItems, navItemsRight } from "../data/MainNavData"
 import { dropdownTienda, DropdownCategorias, dropdownProductos, dropdownElements, DropdownTopDeals } from "../data/Dropdowns"
@@ -9,6 +9,21 @@ import Cart from "../pages/Cart"
 
 function MainNav() {
 
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    // Función para contar productos en el carrito
+    const updateCartCount = () => {
+      const carrito = JSON.parse(sessionStorage.getItem("carritocompras") || "[]");
+      // Suma la cantidad de cada producto
+      const total = carrito.reduce((acc: number, item: any) => acc + (item.cantidad || 1), 0);
+      setCartCount(total);
+    };
+
+    updateCartCount();
+    window.addEventListener("carritoActualizado", updateCartCount);
+    return () => window.removeEventListener("carritoActualizado", updateCartCount);
+  }, []);
 
   const location = useLocation()
   console.log(location)
@@ -76,25 +91,32 @@ function MainNav() {
             </div>
           </div>
 
+          {/* Nav-centro(logo del gym) */}
           <div className="col centro">
             <img id="logo" className="img-fluid" src={logo} alt="" />
           </div>
 
 
+          {/* Nav-derecha */}
           <div className="col">
             <ul className="header-nav">
               {navItemsRight.map((itemMenu, index) =>
                 <li className="icono" key={index}>
                   {index === 3 ? (
-                    <i
-                      className={"nav-link bi " + itemMenu.icon}
-                      role="button"
-                      tabIndex={0}
-                      data-bs-toggle="offcanvas"
-                      data-bs-target="#offcanvasRight"
-                      aria-controls="offcanvasRight"
-                      style={{ cursor: "pointer" }}
-                    ></i>
+                    <span className="cart-icon-wrapper position-relative">
+                      <i
+                        className={"nav-link bi " + itemMenu.icon}
+                        role="button"
+                        tabIndex={0}
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight"
+                        aria-controls="offcanvasRight"
+                        style={{ cursor: "pointer" }}
+                      ></i>
+                      <span className="cart-badge">
+                        {cartCount}
+                      </span>
+                    </span>
                   ) : (
                     <Link
                       className={"nav-link" + (location.pathname === itemMenu.url ? " active" : "")}
@@ -117,9 +139,9 @@ function MainNav() {
           <h5 className="offcanvas-title text-canvas" id="offcanvasRightLabel">Shopping Cart</h5>
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        
-            {Cart()}
-  
+
+        {Cart()}
+
       </div>
 
     </>
