@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './MainHeader.css'
 
 function MainHeader() {
@@ -10,7 +11,7 @@ function MainHeader() {
                     <li className='ms-2 me-2 blueW'>|</li>
                     <li>BLOG</li>
                     <li className='ms-2 me-2 blueW'>|</li>
-                    <li>CONTACT US</li>
+                    <li><Link className='texto-header' to="/contacto">CONTACT US</Link></li>
                     <li className='ms-2 me-2 blueW'>|</li>
                     <li>FAQS</li>
                 </div>

@@ -1,47 +1,90 @@
+.row-contact {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: 0;
+  margin-left: 0;
+}
+
 .contact-section {
-  background: #f7f7f7;
   padding: 2rem 0;
 }
 
+.icon-img-contact{
+  width: 22px;
+  height: 22px;
+}
 .contact-map-container {
   background: #fff;
   border-radius: 5px;
   overflow: hidden;
   height: 600px;
+  border-radius: 0;
 }
 
 .contact-form-box {
   background: #f3f3f3;
-  border-radius: 5px;
+  border-radius: 0;
+}
+.form-label{
+  color: #666666;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .contact-title {
+  text-transform: uppercase;
   font-family: 'Oswald', sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 30px;
+  font-weight: 500;
   margin-bottom: 0.5rem;
+  letter-spacing: 0;
+  line-height: 1;
 }
 
 .contact-desc {
-  color: #444;
+  color: #666666;
   margin-bottom: 1.5rem;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .contact-submit-btn {
-  background: #1a33ff;
+  background: var(--color2);
   border: none;
-  font-weight: bold;
-  letter-spacing: 1px;
-  padding: 0.7rem 2.5rem;
-  font-size: 1.1rem;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  border-radius: 0px;
+  padding: 9px 24px 9px 24px;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
 }
+.contact-submit-btn:hover {
+  background: black;
+  color: #fff;
+}
+
 
 .contact-info-row {
   margin-top: 2rem;
 }
 
 .contact-info-box {
-  background: #f3f3f3;
+  background: #F0F0F0;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 2rem 1.5rem;
+  height: 100%;
+}
+.contact-info-box2 {
+  background: #F5F5F5;
   border-radius: 0;
   display: flex;
   align-items: center;
@@ -53,7 +96,7 @@
 .contact-info-icon {
   width: 54px;
   height: 54px;
-  border: 2px solid #1a33ff;
+  border: 1.5px solid #1a33ff;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -61,13 +104,17 @@
   font-size: 2rem;
   color: #1a33ff;
   margin-right: 0.5rem;
-  background: #fff;
 }
 
 .contact-info-box div {
-  color: #444;
-  font-size: 1rem;
-  line-height: 1.4;
+  color: #666666;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+}
+.contact-info-box2 div {
+  color: #666666;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 @media (max-width: 767px) {

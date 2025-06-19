@@ -10,6 +10,8 @@ import ProductDetails from './pages/ProductDetails'
 import Cart from './pages/Cart'
 import ViewCart from './pages/ViewCart'
 import Contact from './pages/Contact'
+import AboutUs from './pages/AboutUs'
+import FAQS from './pages/FAQS'
 
 function App() {
   return (
@@ -27,8 +29,10 @@ function App() {
             <Route path="/clientes" element={<Clientes />} />
             <Route path="/viewcart" element={<ViewCart />} />
             <Route path="/contacto" element={<Contact />} />
-            
-          </Routes>     
+            <Route path="/acercadenosotros" element={<AboutUs />} />
+            <Route path="/faqs" element={<FAQS />} />
+
+          </Routes>
         </main>
         
         <MainFooter />

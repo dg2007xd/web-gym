@@ -17,7 +17,10 @@ h4 a {
 }
 
 
-
+.texto-header{
+    color: white;
+    text-decoration: none;
+}
 
 .blueW {
     color: #4B5BE9;
