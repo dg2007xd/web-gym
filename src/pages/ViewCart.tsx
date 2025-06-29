@@ -100,6 +100,19 @@ function ViewCart() {
       <section className="padded padded-inverso-viewcart">
         <div className="container">
           <div className="row">
+            {listaItems.length === 0 ? (
+            <div className="col-12 d-flex flex-column align-items-center justify-content-center">
+              <h2 className="fw-bold text-center mb-4 cart-empty">
+                Your cart is currently empty.
+              </h2>
+              <Link
+                to="/tienda"
+                className="btn boton-return fw-bold px-5 py-2">
+                RETURN TO SHOP
+              </Link>
+            </div>
+          ) : (
+            <>
             {/* Tabla de productos */}
             <div className="col-lg-8 mb-4">
               <h2 id="cart-summary" className="mb-4 uppercase">Cart Summary</h2>
@@ -175,6 +188,7 @@ function ViewCart() {
                   )}
                 </tbody>
               </table>
+
 
               {/* Beneficios */}
               <div className="row mt-4 benefit-row">
@@ -336,6 +350,8 @@ function ViewCart() {
                 </div>
               </div>
             </div>
+            </>
+            )}
           </div>
         </div>
       </section>

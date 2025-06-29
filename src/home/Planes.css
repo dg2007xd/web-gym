@@ -1,8 +1,6 @@
 #planes {
-    color: var(--color-negro);
+    color: black;
 }
-
-
 
 .text-planes {
     font-size: 30px;
@@ -28,8 +26,8 @@
     font-size: 0.75rem;
     line-height: 0.938rem;
     text-transform: uppercase;
-    background-color: var(--color2);
-    color: var(--color-blanco);
+    background-color: #1328E0;
+    color: white;
     width: fit-content;
     margin: auto;
     justify-content: center;

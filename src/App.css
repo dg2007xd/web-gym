@@ -1,0 +1,60 @@
+.darkmode-switch {
+  position: fixed;
+  bottom: 2.5rem;
+  left: 2.5rem;
+  z-index: 1200;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+.darkmode-switch .switch-knob {
+    background: #fff;
+}
+.switch-track {
+  display: flex;
+  align-items: center;
+  width: 80px;
+  height: 38px;
+  background: #374151;
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.3s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.darkmode-switch.dark .switch-track {
+  background: #f4f6f8;
+}
+
+.switch-icon {
+  position: absolute;
+  left: 51px;
+  font-size: 1.3rem;
+  color: #fff;
+  transition: color 0.3s, left 0.3s;
+  z-index: 2;
+}
+
+.darkmode-switch.dark .switch-icon {
+  left: 12px;
+  color: #222;
+}
+
+.switch-knob {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 30px;
+  height: 30px;
+  background: #f4f6f8;
+  border-radius: 50%;
+  transition: left 0.3s, background 0.3s;
+  z-index: 1;
+}
+
+.darkmode-switch.dark .switch-knob {
+  left: 47px;
+  background: #374151;
+}

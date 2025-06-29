@@ -22,11 +22,10 @@ function Shop() {
 
     const [totalFiltrado, setTotalFiltrado] = useState(0);
 
-    const [mostrarTodos, setMostrarTodos] = useState(false);
 
 
     useEffect(() => {
-        setMostrarTodos(false);
+
     }, [categoriasSeleccionadas]);
 
     useEffect(() => {
@@ -83,6 +82,7 @@ function Shop() {
             }
         });
     };
+    
 
     return (
         <>
@@ -282,46 +282,47 @@ function Shop() {
                                 </div>
                                 <hr className="my-2 linea-box" />
                                 <div className={`filtro-animado${mostrarRating ? " show" : ""}`}>
-                                    <ul className="filter-list mb-2" style={{ listStyle: "none", paddingLeft: 0 }}>
+                                    <ul className="filter-list mb-2">
                                         <li className="filter-link d-flex align-items-center mb-1" style={{ cursor: "pointer" }}>
                                             <span style={{ color: "#ffc107", fontSize: "1.1em" }}>
                                                 ★★★★★
                                             </span>
-                                            <span className="ms-2 text-muted">(10)</span>
+                                            <span className="ms-2 negro">(10)</span>
                                         </li>
                                         <li className="filter-link d-flex align-items-center mb-1" style={{ cursor: "pointer" }}>
                                             <span style={{ color: "#ffc107", fontSize: "1.1em" }}>
                                                 ★★★★☆
                                             </span>
-                                            <span className="ms-2 text-muted">(14)</span>
+                                            <span className="ms-2 negro">(14)</span>
                                         </li>
                                         <li className="filter-link d-flex align-items-center mb-1" style={{ cursor: "pointer" }}>
                                             <span style={{ color: "#ffc107", fontSize: "1.1em" }}>
                                                 ★★★☆☆
                                             </span>
-                                            <span className="ms-2 text-muted">(0)</span>
+                                            <span className="ms-2 negro">(0)</span>
                                         </li>
                                         <li className="filter-link d-flex align-items-center mb-1" style={{ cursor: "pointer" }}>
                                             <span style={{ color: "#ffc107", fontSize: "1.1em" }}>
                                                 ★★☆☆☆
                                             </span>
-                                            <span className="ms-2 text-muted">(0)</span>
+                                            <span className="ms-2 negro">(0)</span>
                                         </li>
                                         <li className="filter-link d-flex align-items-center mb-1" style={{ cursor: "pointer" }}>
                                             <span style={{ color: "#ffc107", fontSize: "1.1em" }}>
                                                 ★☆☆☆☆
                                             </span>
-                                            <span className="ms-2 text-muted">(0)</span>
+                                            <span className="ms-2 negro">(0)</span>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div className="col-9">
-                            <h3>
+                            <div className="d-flex d-inline"></div>
+                            <h3 id="mostrando-shop">
                                 {categoriasSeleccionadas.length === 1
                                     ? `Mostrando los ${totalFiltrado || totalGeneral} resultados`
-                                    : `Mostrando 1–${mostrarTodos ? (totalFiltrado || totalGeneral) : Math.min(12, totalFiltrado || totalGeneral)} de ${totalFiltrado || totalGeneral} resultados`
+                                    : `Mostrando 1–${Math.min(12, totalFiltrado || totalGeneral)} de ${totalFiltrado || totalGeneral} resultados`
                                 }
                             </h3>
                             {/* Chips de categorías seleccionadas */}
@@ -357,8 +358,6 @@ function Shop() {
                                 codigosCategoria={categoriasSeleccionadas.map(cat => cat.idcategoria)}
                                 mostrarPorDefecto={categoriasSeleccionadas.length === 0}
                                 setTotalFiltrado={setTotalFiltrado}
-                                mostrarTodos={mostrarTodos}
-                                setMostrarTodos={setMostrarTodos}
                             />
                         </div>
                     </div>

@@ -14,13 +14,13 @@ function MainFooter() {
                                 <div className="col-12 text-center mt-5">
                                     <i className="bi bi-envelope mail-go"></i>
                                     <h2 className="fw-bold mt-1 text-foo">SUBSCRIBE TO OUR NEWSLETTER</h2>
-                                    <p className="mb-4" style={{ color: "#555" }}>
+                                    <p className="mb-4 text-footer">
                                         Subscribe to our latest newsletter to get news about special discounts.
                                     </p>
                                     <form className="d-flex justify-content-center" style={{ maxWidth: 700, margin: "0 auto" }}>
                                         <input
                                             type="email"
-                                            className="form-control form-control-lg me-2"
+                                            className="form-control-footer form-control-lg me-2"
                                             placeholder="Email"
                                             style={{ borderRadius: 0, fontSize: "1.1rem" }}
                                         />

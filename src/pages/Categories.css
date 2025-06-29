@@ -1,0 +1,56 @@
+.table>:not(caption)>*>* {
+    color: var(--color-negro);
+    background-color: var(--color-blanco);
+}
+
+.Toptable {
+    background-color: var(--color2) !important;
+    color: var(--color-blanco) !important;
+}
+.boton-color-danger {
+  background-color: #E62B64;
+  color: white;
+  border-radius: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 9px 24px 9px 24px;
+}
+
+.boton-color-danger:hover {
+  background-color: var(--color-boton-check-hover);
+  color: var(--color-blanco);
+  border-radius: 0;
+}
+.pagination {
+    --bs-pagination-color: var(--color2);
+    
+
+    --bs-pagination-active-bg: var(--color2);
+    --bs-pagination-active-color: var(--color-blanco);
+
+    --bs-pagination-hover-color: var(--color4);
+    --bs-pagination-bg: var(--color-gris-claro);
+
+    --bs-pagination-border-color: var(--color-gris-oscuro);
+
+    --bs-pagination-focus-bg: #189489;
+    --bs-pagination-focus-color: white;
+
+    --bs-pagination-disabled-bg: #676767;
+    --bs-pagination-disabled-color: white;
+    --bs-pagination-disabled-border-color: var(--color-gris-oscuro);
+
+    --bs-pagination-active-border-color: var(--color2);
+}
+
+.page-link:focus {
+    z-index: 3;
+    color: var(--bs-pagination-focus-color);
+    background-color: var(--bs-pagination-focus-bg);
+    outline: 0;
+    box-shadow: none;
+}

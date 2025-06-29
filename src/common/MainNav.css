@@ -12,8 +12,8 @@
     position: absolute;
     top: 3px;
     right: 0px;
-    background: #1a33ff;
-    color: #fff;
+    background: var(--color2);
+    color: var(--color-blanco);
     width: 15px;
     height: 15px;
     line-height: 15px;
@@ -39,8 +39,9 @@
 }
 
 .titulo-ofcanvas {
-    background-color: #f0f0f0;
-    border-bottom: 1px solid #e5e5e5;
+    background-color: var(--color-header-ofcanvas);
+    color: var(--color-negro);
+    border-bottom: 1px solid var(--hr);
 }
 
 .text-canvas {
@@ -50,6 +51,7 @@
     letter-spacing: 0px;
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
+    color: var(--color-negro);
 }
 
 .nav-padded {
@@ -84,7 +86,7 @@
 }
 
 .icono {
-    color: black;
+    color: var(--color-negro);
     padding-left: 28px;
     font-size: 23px;
     font-weight: bold;
@@ -102,7 +104,6 @@
 }
 
 
-
 .btn-success {
     background-color: #189489;
     border: none;
@@ -111,7 +112,7 @@
     line-height: normal;
     padding: 0.2em 0.6em;
     border-radius: 4px;
-    color: var(--color-blanco);
+    color: white;
 }
 
 .btn-success:hover {
@@ -127,7 +128,7 @@
     line-height: normal;
     padding: 0.2em 0.6em;
     border-radius: 4px;
-    color: var(--color-blanco);
+    color: white;
 }
 
 .btn-danger:hover {
@@ -178,7 +179,7 @@
     width: 240px;
     padding-top: 0.2em;
     padding-bottom: 0.2em;
-    color: #676767;
+    color: var(--dropdown-item);
     font-weight: 400;
     font-size: 14px;
     line-height: 1.7;

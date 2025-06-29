@@ -11,29 +11,145 @@
   --color4: #DDA853;
   --color-blanco: #FFFFFF;
   --color-negro: #000000;
-  --color-gris-claro: #CCCCCC;
+  --color-gris-claro: #F4F5F4;
   --color-gris-oscuro: #333333;
+  --color-boton-home-dark: #495057;
+  --color-boton-home-dark-hover: #000000;
+  --color-page-header: #EEEEEE;
+  --color-boton-view: #000000;
+  --color-boton-view-hover: #1328E0;
+  --color-boton-check: #1328E0;
+  --color-boton-check-hover: #000000;
+  --color-header-ofcanvas: #000000;
+  --color-body-ofcanvas: #FFFEFF;
+  --hr: #e5e5e5;
+  --blanco-a-casinegro: #FFFEFF;
+  --table-border-color: #e5e5e5;
+  --bg-dropdown: #F5F4F4;
+  --bg-dropdown2: #F5F4F4;
+  --box-shadow: #121212;
+  --dropdown-item: #676767;
+  --color-gris-acercade: #F1F0F0;
+}
+
+hr {
+  color: var(--hr);
+}
+
+.darkmode-switch {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 9999;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.switch-track {
+  width: 73px;
+  height: 38px;
+  background: #d1d5db;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.darkmode-switch.dark .switch-track {
+  background: #2c3440;
+}
+
+.switch-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 33px;
+  height: 32px;
+  background: #232b36;
+  border-radius: 50%;
+  transition: left 0.3s, background 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+  
+
+.switch-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  transition: left 0.3s;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.darkmode-switch.dark .switch-icon {
+  left: 36px;
+}
+
+.switch-icon svg {
+  display: block;
+}
+
+.table {
+  --bs-table-border-color: var(--table-border-color);
+}
+
+.darkmode-btn:hover {
+  filter: brightness(0.9);
 }
 
 .text-color2 {
   color: var(--color2) !important;
   text-decoration: none;
 }
-.gris{
+
+.gris {
   color: #979796;
 }
 
+.font-Open {
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
 .boton-color2 {
-  background-color: var(--color2);
+  background-color: var(--color-boton-check);
   color: white;
   border-radius: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 9px 24px 9px 24px;
 }
+
+.boton-color2:hover {
+  background-color: var(--color-boton-check-hover);
+  color: var(--color-blanco);
+  border-radius: 0;
+}
+
 .change-address {
   color: var(--color2) !important;
 }
-.change-address:hover{
+
+.change-address:hover {
   color: black !important;
 }
+
 .precio-design {
   color: var(--color2);
   font-weight: 500;
@@ -147,6 +263,12 @@ ul {
   max-width: 60%;
 }
 
+.padded-inverso-0 {
+  justify-content: center;
+  margin: auto;
+  max-width: 100%;
+}
+
 .padded-inverso-viewcart {
   justify-content: center;
   margin: auto;
@@ -200,7 +322,8 @@ ul {
   display: flex;
   justify-content: end;
 }
-.hover-negro:hover{
+
+.hover-negro:hover {
   color: black;
 }
 
@@ -252,6 +375,12 @@ ul {
   overflow-y: auto;
 }
 
+.offcanvas-bodyCategories {
+  flex-grow: 1;
+  padding: 0 15px;
+  overflow-y: auto;
+}
+
 .form-check-input:checked[type=checkbox] {
   --bs-form-check-bg-image: url(data:image/svg+xml,%3Csvg%20class%3D%22base-svg-icon%20base-check-svg%22%20fill%3D%22currentColor%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ctitle%3EDone%3C%2Ftitle%3E%3Cpath%20d%3D%22M14%202.5l-8.5%208.5-3.5-3.5-1.5%201.5%205%205%2010-10z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E);
 }
@@ -282,7 +411,36 @@ ul {
 }
 
 
+.scroll-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 1050;
+  background: var(--color-boton-check);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
 
+.scroll-top-btn:hover {
+  background: var(--color2);
+}
+
+.scroll-top-icon {
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.scroll-top-btn:hover .scroll-top-icon {
+  color: var(--color-blanco);
+}
 
 
 @media (min-width: 1750px) {

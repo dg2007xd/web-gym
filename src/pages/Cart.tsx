@@ -38,7 +38,7 @@ export const Cart = () => {
 
                 return (
                   <tr key={item.idcarrito}>
-                    <td>
+                    <td className="ofcanvas-body">
                       <img id="back-img-shop"
                         src={item.imagen
                           ? `${API_URL}${item.imagen}`
@@ -49,14 +49,14 @@ export const Cart = () => {
                         alt={item.nombre}
                       />
                     </td>
-                    <td>
+                    <td className="ofcanvas-body">
                       <div className="texto-cont-off">{item.nombre}</div>
-                      <div>
-                        {item.cantidad} × <span className="text-primary fw-bold">S/ {Number(item.precio).toFixed(2)}</span>
+                      <div className="texto-cont-off">
+                        {item.cantidad} × <span className="precio fw-bold">S/ {Number(item.precio).toFixed(2)}</span>
                       </div>
 
                     </td>
-                    <td className="text-end align-top">
+                    <td className="text-end align-top ofcanvas-body">
                       <i
                         className="bi bi-x-lg icon-delete"
                         title="Eliminar item"
@@ -89,15 +89,15 @@ export const Cart = () => {
 
   const [animatedProgress, setAnimatedProgress] = useState(0);
 
-  
 
-const eliminarItem = (item: ItemCarrito) => {
-  const carritoMenos = listaItems.filter(i => i.idcarrito != item.idcarrito)
-  setListaItems(carritoMenos)
-  sessionStorage.setItem("carritocompras", JSON.stringify(carritoMenos))
-  calcularTotal(carritoMenos)
-  window.dispatchEvent(new Event("carritoActualizado")) // Notifica a Cart
-}
+
+  const eliminarItem = (item: ItemCarrito) => {
+    const carritoMenos = listaItems.filter(i => i.idcarrito != item.idcarrito)
+    setListaItems(carritoMenos)
+    sessionStorage.setItem("carritocompras", JSON.stringify(carritoMenos))
+    calcularTotal(carritoMenos)
+    window.dispatchEvent(new Event("carritoActualizado")) // Notifica a Cart
+  }
 
 
 
@@ -121,21 +121,21 @@ const eliminarItem = (item: ItemCarrito) => {
 
   return (
     <>
-      <div className="offcanvas-body">
+      <div className="offcanvas-body ofcanvas-body">
         {listaItems.length === 0 ? (
           <div
             className="d-flex flex-column align-items-center justify-content-center h-73"
 
           >
-            <i className="bi bi-cart-x fs-1 text-secondary mb-3"></i>
-            <h5 className="text-center fw-bold mb-2">¡Tu carrito está vacío!</h5>
-            <p className="text-center text-muted">Agrega productos para verlos aquí.</p>
+            <i className="bi bi-cart-x fs-1 negro mb-3"></i>
+            <h5 className="text-center fw-bold mb-2 negro">¡Tu carrito está vacío!</h5>
+            <p className="text-center negro">Agrega productos para verlos aquí.</p>
             <Link to="/tienda"><button className="boton-check boton-buy-now uppercase">Empieza a comprar ahora</button></Link>
           </div>
         ) : (
           <>
             {/* ...barra de progreso y mensaje de delivery... */}
-            <div className="cont-padd">
+            <div className="cont-padd descuento-box">
               <div
                 className="progress position-relative"
                 style={{ height: "10px", overflow: "visible" }}
@@ -170,19 +170,27 @@ const eliminarItem = (item: ItemCarrito) => {
 
               <div className="text-center mt-2">
                 {total >= FREE_DELIVERY_AMOUNT ? (
-                  <span className="texto-canvaoff">
-                    ¡Enhorabuena! Tus pedidos es elegible a envío GRATUITO.
-                  </span>
+                  <>
+                    <span className="texto-canvaoff">
+                      ¡Enhorabuena! Tus pedidos es elegible a envío GRATUITO.
+                    </span>
+                    <div className="border-bottom-cart mt-3">
+                    </div>
+                  </>
+
                 ) : (
                   <>
+
                     Agrega productos por{" "}
-                    <span className="fw-bold text-primary">
+                    <span className="precio fw-bold">
                       S/ {(FREE_DELIVERY_AMOUNT - total).toFixed(2)}
                     </span>{" "}
                     para{" "}
-                    <span className="fw-bold text-warning">
+                    <span>
                       ¡Delivery GRATIS!
                     </span>
+                    <div className="border-bottom-cart mt-3">
+                    </div>
                   </>
                 )}
               </div>
@@ -200,12 +208,12 @@ const eliminarItem = (item: ItemCarrito) => {
       </div>
       {/* Subtotal y botones fuera del offcanvas-body */}
       {listaItems.length > 0 && (
-        <div className="col-md-12 cont-padd2">
+        <div className="col-md-12 cont-padd2 ofcanvas-body border-top-cart">
 
           <div className="row">
-            <hr />
+
             <h5 className="col subtotal">Subtotal:</h5>
-            <p className="col text-end">S/ {total.toFixed(2)}</p>
+            <p className="col text-end precio fw-bold">S/ {total.toFixed(2)}</p>
           </div>
           <div className="row">
             <Link to="/viewcart" className="col boton-view-offcan me-1 btn btn-primary text-center">

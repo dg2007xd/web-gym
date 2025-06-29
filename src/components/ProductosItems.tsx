@@ -6,26 +6,28 @@ import './ProductosItems.css'
 
 
 function ProductosItems({
+
     codigosCategoria,
     mostrarPorDefecto = false,
     setTotalFiltrado,
-    mostrarTodos,
-    setMostrarTodos
 }: {
     codigosCategoria: number[],
     mostrarPorDefecto?: boolean,
     setTotalFiltrado: (n: number) => void,
-    mostrarTodos: boolean,
-    setMostrarTodos: (v: boolean) => void
 }) {
 
     const [listaArticulos, setListaArticulos] = useState<Articulo[]>([]);
     const [productoSeleccionado, setProductoSeleccionado] = useState<Articulo | null>(null);
 
+    const [opcionSeleccionada, setOpcionSeleccionada] = useState(0)
+
+    const [numeroPagina, setNumeroPagina] = useState(0)
+    const filasPagina = 12
+
 
     useEffect(() => {
+        setNumeroPagina(0);
         // Solo resetea cuando cambian las categorías seleccionadas o el modo por defecto
-
         if (codigosCategoria.length === 0 && mostrarPorDefecto) {
             leerServicioPorDefecto();
             return;
@@ -36,8 +38,13 @@ function ProductosItems({
             return;
         }
         leerServicio(codigosCategoria);
-        // eslint-disable-next-line
+
     }, [codigosCategoria, mostrarPorDefecto]);
+
+    useEffect(() => {
+        setNumeroPagina(0);
+        ordenarListaProductos(opcionSeleccionada)
+    }, [opcionSeleccionada])
 
     const leerServicio = async (idsCategoria: number[]) => {
         try {
@@ -60,8 +67,8 @@ function ProductosItems({
             setTotalFiltrado(0);
         }
     };
-
-    const articulosMostrados = mostrarTodos ? listaArticulos : listaArticulos.slice(0, 12);
+    //Com funciona esto? Explicacion paso a paso
+    const articulosMostrados = listaArticulos.slice(0, filasPagina * (numeroPagina + 1));
 
     const dibujarLista = () => {
         return (
@@ -70,7 +77,7 @@ function ProductosItems({
                     {articulosMostrados.map(item => (
                         <div className='cont-artic p-3' key={item.id}>
                             <div className='sec-pro card h-100'>
-                                {/* ...resto del render de producto igual... */}
+
                                 <div id='back-img-shop' className='center container-fluid'>
                                     <Link to={`/productodetalle/${item.id}`}>
                                         <img
@@ -106,9 +113,9 @@ function ProductosItems({
                     ))}
                 </div>
                 {/* Botón Ver más */}
-                {listaArticulos.length > 12 && !mostrarTodos && (
+                {(numeroPagina + 1) * filasPagina < listaArticulos.length && (
                     <div className="text-center mt-3">
-                        <button className="btn btn-primary ver-boton" onClick={() => setMostrarTodos(true)}>
+                        <button className="btn btn-primary ver-boton" onClick={() => setNumeroPagina(numeroPagina + 1)}>
                             Ver más
                         </button>
                     </div>
@@ -159,7 +166,7 @@ function ProductosItems({
                                             : API_URL + "imagenes/nofoto.jpg"}
                                         className="img-fluid img-quickview"
                                         alt={productoSeleccionado?.nombre}
-                                        
+
                                     />
                                 </div>
                                 {/* Info derecha */}
@@ -201,9 +208,41 @@ function ProductosItems({
         )
     }
 
+    const ordenarListaProductos = (criterio: Number) => {
+        const productosOrdenados = Array.from(listaArticulos)
+
+        switch (criterio) {
+            case 0:
+                productosOrdenados.sort((a, b) => Number(a.id) - Number(b.id))
+                break
+            case 1:
+                productosOrdenados.sort((a, b) => Number(b.id) - Number(a.id))
+                break
+            case 2:
+                productosOrdenados.sort((a, b) => Number(a.precio) - Number(b.precio))
+                break
+            case 3:
+                productosOrdenados.sort((a, b) => Number(b.precio) - Number(a.precio))
+                break
+        }
+        setListaArticulos(productosOrdenados)
+    }
+
+    const dibujarOrdenarPor = () => {
+        return (
+            <select className="form-select mb-3 w-auto"
+                value={opcionSeleccionada} onChange={(event) => setOpcionSeleccionada(Number(event.target.value))}>
+                <option value={0}>Mas antiguo</option>
+                <option value={1}>Reciente</option>
+                <option value={2}>Precio mas bajo</option>
+                <option value={3}>Precio mas alto</option>
+            </select>
+        )
+    }
 
     return (
         <>
+            {dibujarOrdenarPor()}
             {dibujarLista()}
             {showQuickView()}
         </>

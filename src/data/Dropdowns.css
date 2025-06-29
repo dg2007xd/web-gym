@@ -1,6 +1,6 @@
 .bg-categories-img {
     margin: 0;
-    background-color: #F5F4F4;
+    background-color: var(--bg-dropdown2);
     position: absolute;
     bottom: 0px;
     right: 0px;
@@ -8,9 +8,20 @@
     width: 815px;
 }
 
+.dropdown-header {
+    color: var(--color-negro);
+}
+
+.dropdown-menu {
+    --bs-dropdown-link-hover-color: var(--color2);
+    --bs-dropdown-link-hover-bg: none;
+    --bs-dropdown-link-active-color: var(--color-negro);
+    --bs-dropdown-link-active-bg: none;
+}
+
 .bg-categories-img-deals {
     margin: 0;
-    background-color: #F5F4F4;
+    background-color: var(--bg-dropdown2);
     position: absolute;
     bottom: 0px;
     right: 0px;
@@ -60,7 +71,7 @@
 }
 
 .produc-categoria {
-    background-color: white;
+    background-color: var(--bg-dropdown);
     height: 136px;
     width: 371px;
 }
@@ -71,7 +82,8 @@
     width: 105rem;
     position: absolute;
     left: -52px;
-    box-shadow: 0px -1px 5px #E0E0E0;
+    background-color: var(--bg-dropdown);
+    box-shadow: 0px -1px 5px var(--bg-box-shadow);
     border: 0;
 }
 
@@ -271,23 +283,26 @@
     width: 105rem;
     position: absolute;
     left: -133px;
-    box-shadow: 0px -1px 5px #E0E0E0;
+    background-color: var(--bg-dropdown);
+    box-shadow: 0px -1px 5px var(--bg-box-shadow);
     border: 0;
 }
 
 
 .mega-menuP {
-    box-shadow: 0px -1px 5px #E0E0E0;
+    box-shadow: 0px -1px 5px var(--bg-box-shadow);
     border: 0;
     top: 87px;
     border-radius: 0%;
     width: 105rem;
+    background-color: var(--bg-dropdown);
     position: absolute;
     left: -286px;
 }
 
 .mega-menuT {
-    box-shadow: 0px -1px 5px #E0E0E0;
+    box-shadow: 0px -1px 5px var(--bg-box-shadow);
+    background-color: var(--bg-dropdown);
     border: 0;
     top: 87px;
     border-radius: 0%;
@@ -298,7 +313,8 @@
 }
 
 .mega-menuE {
-    box-shadow: 0px -1px 5px #E0E0E0;
+    box-shadow: 0px -1px 5px var(--bg-box-shadow);
+    background-color: var(--bg-dropdown);
     position: absolute;
     top: 87px;
     width: 19rem;

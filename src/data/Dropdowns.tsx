@@ -169,9 +169,9 @@ export const DropdownCategorias = ({ codigoCategoria }: ProductosProps) => {
 
             {hasData ? (
               // Tu código original
-              listaProductos.map(item => {
+              listaProductos.slice(0,4).map(item => {
                 return (
-                  <div className="col-md-6 mb-3" key={item.id}>
+                  <div className="col-md-6 mb-3 negro" key={item.id}>
                     <div className="row align-items-center produc-categoria ms-2">
                       <div className="col-md-4">
                         <img id='back-img-categ'
@@ -458,7 +458,7 @@ export const DropdownTopDeals = () => {
                       />
                     </div>
                     <div className="card-body">
-                      <h6 className="card-title list-group-item mt-3">{item.nombrecategoria}</h6>
+                      <h6 className="card-title list-group-item negro mt-3">{item.nombrecategoria}</h6>
                     </div>
                   </div>
                 </div>

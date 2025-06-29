@@ -7,20 +7,34 @@ input[type=number]::-webkit-outer-spin-button{
 input[type=number]{
     -moz-appearance: textfield;
 }
+/* Asegúrate de que el offcanvas tenga un z-index mayor */
+.offcanvas {
+  z-index: 1080 !important; /* Bootstrap usa 1045 por defecto, 1080 es seguro */
+}
 .quantity{
     width: 50px !important;
     box-shadow: none !important;
 }
-
+.border-bottom-cart{
+    border-bottom: 1px solid var(--hr);
+}
+.border-top-cart{
+    border-top: 1px solid var(--hr);
+}
+.descuento-box{
+    background-color: var(--color-body-ofcanvas);
+    color: var(--color-negro);
+}
 .boton-check{
-    background-color: var(--color2);
+    background-color: var(--color-boton-check);
     color: white;
     font-weight: bold;
     text-transform: uppercase;
     transition: all 0.5s ease;
 }
 .boton-check:hover{
-    background-color: var(--color-negro);
+    background-color: var(--color-boton-check-hover);
+    color: var(--color-blanco);
 }
 .texto-canvaoff{
     font-size: 15px;
@@ -32,6 +46,7 @@ input[type=number]{
     font-weight: 500;
     line-height: 1.4;
     font-family: 'Open sans', sans-serif;
+    color: var(--color-negro);
 }
 .cont-padd{
     padding: 1rem 1rem;
@@ -52,8 +67,8 @@ input[type=number]{
     border: 0;
 }
 .boton-view-offcan{
-    background-color: var(--color-negro);
-    color: white;
+    background-color: var(--color-boton-view);
+    color: var(--color-blanco);
     font-weight: bold;
     text-transform: uppercase;
     font-weight: 600;
@@ -69,12 +84,12 @@ input[type=number]{
     transition: all .2s ease;
 }
 .boton-view-offcan:hover{
-    background-color: var(--color2);
+    background-color: var(--color-boton-view-hover);
 }
 
 
 .boton-check-offcan{
-    background-color: var(--color2);
+    background-color: var(--color-boton-check);
     color: white;
     font-weight: bold;
     text-transform: uppercase;
@@ -91,7 +106,8 @@ input[type=number]{
     transition: all .2s ease;
 }
 .boton-check-offcan:hover{
-    background-color: var(--color-negro);
+    background-color: var(--color-boton-check-hover);
+    color: var(--color-blanco);
 }
 .subtotal{
     font-size: 1.25rem;
@@ -101,6 +117,12 @@ input[type=number]{
     font-family: 'Open sans', sans-serif;
     text-transform: capitalize;
 }
+.precio{
+    color: var(--color2);
+}
 .h-73{
     height: 73% !important;
+}
+.ofcanvas-body{
+    background-color: var(--blanco-a-casinegro) !important;
 }

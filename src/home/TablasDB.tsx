@@ -87,7 +87,7 @@ function TablasDB() {
         //Productos
         <section id="envios" className='padded'>
             <div className="container">
-                <h2>Tabla de Productos</h2>
+                <h2 className='negro uppercase'>Tabla de Productos</h2>
                 <table className="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
@@ -113,7 +113,7 @@ function TablasDB() {
             
             {/* Planes */}
             <div className="container">
-                <h2>Tabla de Planes</h2>
+                <h2 className='negro uppercase'>Tabla de Planes</h2>
                 <table className="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
@@ -138,7 +138,7 @@ function TablasDB() {
 
             {/* Locales */}
             <div className="container">
-                <h2>Tabla de Locales</h2>
+                <h2 className='negro uppercase'>Tabla de Locales</h2>
                 <table className="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>

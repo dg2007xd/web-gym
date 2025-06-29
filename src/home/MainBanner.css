@@ -37,6 +37,8 @@
 }
 
 .btnC {
+    color: var(--color-negro);
+    background-color: var(--color-blanco);
     font-weight: 600;
     font-family: "Open Sans", sans-serif;
     font-size: 0.875rem;
@@ -47,7 +49,7 @@
 
 .btnC:hover {
     background-color: var(--color-negro);
-    color: white;
+    color: var(--color-blanco);
 }
 
 @media (max-width: 430px) {

@@ -18,7 +18,7 @@ h4 a {
 
 
 .texto-header{
-    color: white;
+    color: var(--color-blanco);
     text-decoration: none;
 }
 
@@ -26,5 +26,5 @@ h4 a {
     color: #4B5BE9;
 }
 .Bblanco{
-    background-color: white;
+    background-color: var(--color-blanco);
 }

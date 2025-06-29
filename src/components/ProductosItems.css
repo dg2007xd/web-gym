@@ -1,6 +1,6 @@
 .producto-review {
     margin-left: -51px;
-    color: black;
+    color: var(--color2);
     text-decoration: none;
 }
 
@@ -11,7 +11,8 @@
 
 .ver-boton {
     border-radius: 0;
-    background-color: var(--color2);
+    background-color: var(--color-boton-home-dark);
+    color: white;
     border: none;
     margin-left: -1px;
     font-weight: 600;
@@ -22,6 +23,10 @@
     text-transform: uppercase;
     padding: 9px 24px 9px 24px;
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+}
+.ver-boton:hover{
+    background-color: var(--color-boton-home-dark-hover);
+    color: var(--color-blanco);
 }
 
 .img-back {
@@ -43,8 +48,31 @@
     padding: 2rem 1rem;
     border-right: 1px solid #eee;
 }
-
+.boton-add{
+    background-color: var(--color-boton-home-dark);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    border-radius: 0px;
+    border: 0;
+    padding: 6px 24px 6px 24px;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+    transition: all .2s ease;
+    width: 237px;
+}
+.boton-add:hover{
+    background-color: var(--color-boton-home-dark-hover);
+    color: var(--color-blanco);
+}
 .quickview-right {
+    background-color: var(--color1);
+    color: var(--color-negro);
     flex: 1 1 0;
     padding: 2rem 2rem 2rem 2rem;
     display: flex;
@@ -59,7 +87,7 @@
 }
 
 .boton-quickview {
-    background-color: var(--color2);
+    background-color: var(--color-boton-home-dark);
     color: white;
     border-radius: 0;
     font-weight: 600;
@@ -70,8 +98,8 @@
     padding: 6px 24px 6px 24px;
 }
 .boton-quickview:hover {
-    background-color: black;
-    color: white;
+    background-color: var(--color-boton-home-dark-hover);
+    color: var(--color-blanco);
 }
 
 .modal-content {
@@ -84,5 +112,5 @@
     letter-spacing: 0.5px;
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
-    color: #666666;
+    color: var(--color-negro);
 }

@@ -1,3 +1,10 @@
+.card{
+    --bs-card-bg: var(--color1);
+    color: var(--color-negro);
+}
+.card:hover{
+    color: var(--color2);
+}
 #back-img {
     max-height: 17.5rem;
     background-color: #F4F4F5;
@@ -18,17 +25,19 @@
     background-color: #F4F4F5;
 }
 
-/*
-#nombre-produc{
-    font-family: "Open sans", sans-serif;
-    font-size: 0.9rem;
+
+.nombre-productos{
+    color: var(--color-negro);
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
 }
-    */
+    
 #titulo {
     font-family: "Oswald", sans-serif;
     font-size: 1.875rem;
     text-transform: uppercase;
     font-weight: 500;
+    color: var(--color-negro);
 }
 
 
@@ -89,6 +98,7 @@ article .active {
     right: -40px;
     /* Oculto fuera de la tarjeta, ajusta según el tamaño del icono */
     background-color: var(--color-blanco);
+    color: var(--color-negro);
     padding: 5px 10px;
     border-radius: 50%;
     transition: all .3s ease-in-out;
@@ -108,6 +118,7 @@ article .active {
     right: -40px;
     /* Oculto fuera de la tarjeta, ajusta según el tamaño del icono */
     background-color: var(--color-blanco);
+    color: var(--color-negro);
     padding: 5px 10px;
     border-radius: 50%;
     transition: all .3s ease-in-out;
@@ -132,6 +143,7 @@ article .active {
     top: 14%;
     right: -40px;
     background-color: var(--color-blanco);
+    color: var(--color-negro);
     padding: 5px 10px;
     border-radius: 50%;
     transition: all .3s ease-in-out;
@@ -151,7 +163,7 @@ article .active {
 
 
 .boton-add{
-    background-color: var(--color2);
+    background-color: var(--color-boton-home-dark);
     color: white;
     font-weight: bold;
     text-transform: uppercase;
@@ -169,10 +181,10 @@ article .active {
     width: 257px;
 }
 .boton-add:hover{
-    background-color: var(--color-negro);
+    background-color: var(--color-boton-home-dark-hover);
 }
 .boton-add-home{
-    background-color: var(--color2);
+    background-color: var(--color-boton-home-dark);
     color: white;
     font-weight: bold;
     text-transform: uppercase;
@@ -190,12 +202,13 @@ article .active {
     width: 237px;
 }
 .boton-add-home:hover{
-    background-color: var(--color-negro);
+    background-color: var(--color-boton-home-dark-hover);
+    color: var(--color-blanco);
 }
 .boton-agregar-home {
     display: none;
     position: absolute;
-    bottom: 139px; 
+    bottom: 125px; 
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
