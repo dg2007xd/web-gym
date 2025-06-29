@@ -162,11 +162,11 @@ function Categories() {
 
     {/*INSERT*/ }
     const insertEjercicio = async (event: React.SyntheticEvent) => {
-        event.preventDefault() //Evita que se vuelva a cargar la pagina 
+        event.preventDefault()
         console.log(nombre, categoria_beneficio, tipo_ejercicio, equipo_necesario)
 
         const formData = new FormData()
-        formData.append("nombre", nombre) //En php y en el codigo d aca ps(el azul)
+        formData.append("nombre", nombre) 
         formData.append("categoria_beneficio", categoria_beneficio)
         formData.append("tipo_ejercicio", tipo_ejercicio)
         formData.append("equipo_necesario", equipo_necesario)
@@ -182,6 +182,7 @@ function Categories() {
             leerServicio();
             const botonCerrar = document.querySelector("#offcanvasInsert .btn-close") as HTMLElement
             botonCerrar.click()
+
             setNombre("")
             setCategoria_Beneficio("")
             setTipo_Ejercicio("")
@@ -242,7 +243,7 @@ function Categories() {
 
     {/*UPDATE*/ }
     const updateEjecicio = async (event: React.SyntheticEvent) => {
-        event.preventDefault() //Evita que se vuelva a cargar la pagina 
+        event.preventDefault()
         console.log(nombre, categoria_beneficio, tipo_ejercicio, equipo_necesario)
 
         const formData = new FormData()
@@ -259,9 +260,11 @@ function Categories() {
             })
             const data: string = await response.text()
             console.log(data)
+
             leerServicio();
             const botonCerrar = document.querySelector("#offcavasUpdate .btn-close") as HTMLElement
             botonCerrar.click()
+
             setIdejercicio(0)
             setNombre("")
             setCategoria_Beneficio("")
@@ -343,9 +346,11 @@ function Categories() {
             });
             const data = await response.text();
             console.log(data);
+
             leerServicio();
             const botonCerrar = document.querySelector("#offcanvasDelete .btn-close") as HTMLElement;
             if (botonCerrar) botonCerrar.click();
+            
             setIdejercicio(0);
             setNombre("");
             setCategoria_Beneficio("");
