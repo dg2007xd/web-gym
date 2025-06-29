@@ -6,6 +6,8 @@ import chica from "../assets/images/chica-corriendo.jpg"
 import largo from "../assets/images/gym-largo.jpg"
 import flexiones from "../assets/images/flexiones.jpg"
 
+import motivation from "../assets/images/motivation.jpg"
+
 function AboutUs() {
   const [activeTab, setActiveTab] = useState("development");
   const [open, setOpen] = useState("vision");
@@ -93,7 +95,7 @@ function AboutUs() {
 
       <div className='bg-acerca'>
         <div className="padded-inverso">
-          <div className="aboutus-container">
+          <div className="aboutus-container justify-content-center align-items-center">
             <div className="aboutus-left">
               <h1 className="aboutus-title">INSPIRATION, INNOVATION,<br />AND OPPORTUNITIES.</h1>
               <p className="aboutus-subtitle">
@@ -152,7 +154,7 @@ function AboutUs() {
             </div>
             <div className="aboutus-right">
               <img
-                src="https://img.freepik.com/vector-gratis/idea-creativa-lampara-caja-carton_1017-25463.jpg"
+                src={motivation}
                 alt="Idea"
                 className="aboutus-image"
               />

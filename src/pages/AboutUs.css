@@ -49,18 +49,20 @@
 }
 
 .aboutus-title {
-    font-size: 2.7rem;
-    font-weight: bold;
+    font-size: 32px;
+    font-family: 'Oswald', sans-serif;
     margin-bottom: 0.5rem;
-    letter-spacing: 0.01em;
-    line-height: 1.1;
+    letter-spacing: 0px;
+    line-height: 40px;
+    font-weight: 500;
     color: var(--color-negro);
 }
 
 .aboutus-subtitle {
-    font-size: 1.1rem;
+    font-size: 14px;
     color: var(--color-negro);
     margin-bottom: 1.5rem;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .aboutus-accordion {
@@ -109,11 +111,12 @@
 }
 
 .aboutus-accordion-content {
-    padding: 0 1.5rem 1.2rem 2.5rem;
-    font-size: 1.08rem;
+    padding: 15px 20px;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
     background: var(--color-gris-acercade);
     color: var(--color-negro);
-    margin-top: 15px;
+    
 }
 
 .aboutus-right {
@@ -124,8 +127,5 @@
 }
 
 .aboutus-image {
-    max-width: 500px;
     width: 100%;
-    border-radius: 0;
-    box-shadow: none;
 }
