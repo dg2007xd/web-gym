@@ -5,7 +5,7 @@
   letter-spacing: 0px;
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
-  color: black
+  color: var(--color-negro);
 }
 
 .cart-empty {
@@ -45,11 +45,11 @@
   letter-spacing: 0px;
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
-  color: black
+  color: var(--color-negro);
 }
 
 #subtotal {
-  color: black;
+  color: var(--color-negro);
   font-weight: 600;
   font-size: 16px;
   font-family: 'Open Sans', sans-serif;
@@ -57,11 +57,12 @@
 
 
 .bg-progreso {
-  background: #fff;
+  background: var(--color-gris-debarraDelivery);
   border: 1px dashed rgb(255, 193, 7);
   border-radius: 8px;
   padding: 30px 30px 30px 30px;
   margin-bottom: 24px;
+  color: var(--color-negro);
 }
 
 .bg-progreso-success {
@@ -97,20 +98,22 @@
 
 .form-check-input:checked[type="radio"] {
   background-color: #000;
-  border-color: #000;
+  border-color: var(--color-negro);
 }
 
 .card-color {
-  background: #F5F4F4;
+  background: var(--color-page-header);
+  color: var(--color-negro);
 }
 
 .card-header {
-  background: #F5F4F4;
+  background: var(--color-page-header);
+  color: var(--color-negro);
 }
 
 .text-sec {
   font-family: 'Open Sans', sans-serif;
-  color: black;
+  color: var(--color-negro);
   font-size: 13px;
   font-weight: 500;
   margin-bottom: 2px;
@@ -153,6 +156,54 @@
   font-size: 1rem;
   color: #666688;
   margin-bottom: 0;
+}
+
+.change-address {
+  color: var(--color2) !important;
+}
+
+.card2 {
+  --bs-card-spacer-y: 1rem;
+  --bs-card-spacer-x: 1rem;
+  --bs-card-title-spacer-y: 0.5rem;
+  --bs-card-title-color: ;
+  --bs-card-subtitle-color: ;
+  --bs-card-border-width: var(--bs-border-width);
+  --bs-card-box-shadow: ;
+  --bs-card-inner-border-radius: calc(var(--bs-border-radius) - (var(--bs-border-width)));
+  --bs-card-cap-padding-y: 0.5rem;
+  --bs-card-cap-padding-x: 1rem;
+  --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
+  --bs-card-cap-color: ;
+  --bs-card-height: ;
+  --bs-card-color: ;
+  --bs-card-img-overlay-padding: 1rem;
+  --bs-card-group-margin: 0.75rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: var(--bs-card-height);
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+  border-radius: var(--bs-card-border-radius);
+}
+
+.form-check .form-check-label2:hover {
+  color: var(--color-negro);
+  text-decoration: none;
+}
+
+.th-text {
+  font-weight: 500;
+  font-size: 18px;
+  padding: 9px 12px;
+  line-height: 1.5em;
+}
+
+.change-address:hover {
+  color: var(--color-negro) !important;
 }
 
 @media (min-width: 768px) {

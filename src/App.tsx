@@ -113,6 +113,10 @@ function App() {
       "--color-gris-acercade",
       darkMode ? "#212121" : "#F1F0F0" //color oscuro de dark mode y gris normal
     );
+    document.documentElement.style.setProperty(
+      "--color-gris-debarraDelivery",
+      darkMode ? "#0F0F0F" : "#FDFAFA" //color oscuro de dark mode y gris normal
+    );
     document.body.style.background = darkMode ? "#181818" : "#fff";
   }, [darkMode]);
 

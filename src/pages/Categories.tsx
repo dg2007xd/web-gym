@@ -381,7 +381,7 @@ function Categories() {
             </div>
             <div className="offcanvas-bodyCategories">
                 <form onSubmit={(event) => deleteEjercicio(event)}>
-                    <h6 className="mb-3">¿Está seguro de eliminar el director?</h6>
+                    <h6 className="mb-3 negro">¿Está seguro de eliminar el director?</h6>
                     <div className="mb-3">
                         <input type="text" className="form-control mb-2" readOnly value={idejercicio} />
                         <input type="text" className="form-control mb-2" readOnly value={nombre} />

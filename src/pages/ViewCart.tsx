@@ -120,11 +120,11 @@ function ViewCart() {
                 <thead>
                   <tr>
                     <th></th>
-                    <th>Product</th>
+                    <th className="th-text">Product</th>
                     <th></th>
-                    <th className="text-end">Price</th>
-                    <th className="text-center">Quantity</th>
-                    <th className="text-end">Subtotal</th>
+                    <th className="text-end th-text">Price</th>
+                    <th className="text-center th-text">Quantity</th>
+                    <th className="text-end th-text">Subtotal</th>
 
                   </tr>
                 </thead>
@@ -171,7 +171,7 @@ function ViewCart() {
                             <button className="btn btn-outline-secondary" type="button" onClick={increment}>+</button>
                           </div>
                         </td>
-                        <td className="text-end text-color2 precio-design">
+                        <td className="text-center text-color2 precio-design">
                           S/ {(item.precio * item.cantidad)}
                         </td>
 
@@ -274,7 +274,7 @@ function ViewCart() {
                 </div>
               </div>
               {/* CART TOTALS */}
-              <div className="card card-color mb-3 p-3">
+              <div className="card2 card-color mb-3 p-3">
                 <div id="cart-totals" className="card-header fw-bold fs-5 mb-2">CART TOTALS</div>
                 <div className="card-body">
                   <div className="d-flex justify-content-between mb-2">
@@ -295,7 +295,7 @@ function ViewCart() {
                             checked={shipping === "free"}
                             onChange={() => setShipping("free")}
                           />
-                          <label className="form-check-label" htmlFor="free">
+                          <label className="form-check-label2" htmlFor="free">
                             Free shipping
                           </label>
                         </div>
@@ -310,7 +310,7 @@ function ViewCart() {
                           disabled={total >= FREE_DELIVERY_AMOUNT && shipping === "free"}
                           onChange={() => setShipping("pickup")}
                         />
-                        <label className="form-check-label" htmlFor="pickup">
+                        <label className="form-check-label2 d-flex justify-content-between" htmlFor="pickup">
                           Local pickup: <span className="text-color2 precio-design">S/ 5</span>
                         </label>
                       </div>
@@ -324,7 +324,7 @@ function ViewCart() {
                           disabled={total >= FREE_DELIVERY_AMOUNT && shipping === "free"}
                           onChange={() => setShipping("flat")}
                         />
-                        <label className="form-check-label" htmlFor="flat">
+                        <label className="form-check-label2 d-flex justify-content-between" htmlFor="flat">
                           Flat rate: <span className="text-color2 precio-design">S/ 10</span>
                         </label>
                       </div>

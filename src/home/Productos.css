@@ -1,37 +1,43 @@
-.card{
+.card {
     --bs-card-bg: var(--color1);
     color: var(--color-negro);
 }
-.card:hover{
+
+.card:hover {
     color: var(--color2);
 }
+
 #back-img {
     max-height: 17.5rem;
     background-color: #F4F4F5;
 }
-.producto-review{
+
+.producto-review {
     margin-left: -51px;
     color: var(--color2);
 }
-.producto-review:hover{
+
+.producto-review:hover {
     color: var(--color-negro);
 }
+
 .cont-artic {
     flex: 0 0 auto;
     width: 31.666667%;
 }
+
 #back-img-shop {
     max-height: 17.5rem;
     background-color: #F4F4F5;
 }
 
 
-.nombre-productos{
+.nombre-productos {
     color: var(--color-negro);
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
 }
-    
+
 #titulo {
     font-family: "Oswald", sans-serif;
     font-size: 1.875rem;
@@ -162,7 +168,7 @@ article .active {
 }
 
 
-.boton-add{
+.boton-add {
     background-color: var(--color-boton-home-dark);
     color: white;
     font-weight: bold;
@@ -180,10 +186,12 @@ article .active {
     transition: all .2s ease;
     width: 257px;
 }
-.boton-add:hover{
+
+.boton-add:hover {
     background-color: var(--color-boton-home-dark-hover);
 }
-.boton-add-home{
+
+.boton-add-home {
     background-color: var(--color-boton-home-dark);
     color: white;
     font-weight: bold;
@@ -201,23 +209,26 @@ article .active {
     transition: all .2s ease;
     width: 237px;
 }
-.boton-add-home:hover{
+
+.boton-add-home:hover {
     background-color: var(--color-boton-home-dark-hover);
     color: var(--color-blanco);
 }
+
 .boton-agregar-home {
     display: none;
     position: absolute;
-    bottom: 125px; 
+    bottom: 125px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
     transition: all .5s ease-in-out;
 }
+
 .boton-agregar-shop {
     display: none;
     position: absolute;
-    bottom: 151px; 
+    bottom: 151px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
@@ -227,6 +238,7 @@ article .active {
 #cards-productos .card:hover .boton-agregar-shop {
     display: block;
 }
+
 #cards-productos .card:hover .boton-agregar-home {
     display: block;
 }
