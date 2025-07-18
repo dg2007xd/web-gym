@@ -1,0 +1,13 @@
+th, td {
+    vertical-align: middle;
+    text-align: center;
+    word-break: break-word;
+  }
+  
+  th {
+    white-space: normal;
+  }
+  
+  .table th, .table td {
+    padding: 0.5rem;
+  }

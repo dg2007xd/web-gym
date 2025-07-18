@@ -445,3 +445,9 @@ ul {
   }
 
 }
+
+@media (max-width: 768px) {
+  .padded-inverso {
+    max-width: 100%;
+  }
+}

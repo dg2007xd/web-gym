@@ -26,15 +26,15 @@ function PlanesHome() {
     const mostrarItem = () => {
 
         return (
-            <div className='row '>
+            <div className='row g-3'>
                 {
                     listaPlanes.map(item =>
-                        <div className='col-4' key={item.id}>
-
-                            <img src={API_URL + item.imagen} className="img-fluid" alt="..." />
-                            <h1 className='caption Oswald text-planes ms-5 me-5'>{item.nombre}</h1>
-                            <p className='descuento-plan caption-desc'>{item.descuento}</p>
-
+                        <div className='col-6 col-md-4' key={item.id}>
+                            <div className="img-caption-container" style={{ position: "relative" }}>
+                                <img src={API_URL + item.imagen} className="img-fluid" alt="..." />
+                                <h1 className='caption Oswald text-planes ms-5 me-5'>{item.nombre}</h1>
+                                <p className='descuento-plan caption-desc'>{item.descuento}</p>
+                            </div>
                         </div>
                     )
                 }
@@ -44,13 +44,13 @@ function PlanesHome() {
 
     return (
         <section id="planes">
-            
-                <div className="padded-inverso text-center mt-5">
-                    
-                    {mostrarItem()}
 
-                </div>
-            
+            <div className="padded-inverso text-center mt-5">
+
+                {mostrarItem()}
+
+            </div>
+
         </section>
     );
 }

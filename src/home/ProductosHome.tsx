@@ -78,7 +78,7 @@ function Productos({ codigoCategoria }: ProductosProps) {
             const nombre = String(item.nombre);
             const precio = Number(item.precio);
             return (
-              <div className='col-3 p-3' key={item.id}>
+              <div className='col-7 col-md-3 p-3' key={item.id}>
                 <div className='sec-pro card h-100'>
                   <div id='back-img' className='center container-fluid'>
                     <Link to={`/productodetalle/${item.id}`}>
@@ -187,17 +187,17 @@ function Productos({ codigoCategoria }: ProductosProps) {
 
 
   return (
-    <section id="productos" className='padded-inverso '>
+    <section id="productos" className='padded-inverso mt-5'>
       <div className="container">
         <h2 id='titulo' className='center mb-2'>Latest Products</h2>
-        <div className="row center mb-3">
-          <article className="col-2">
+        <div className="col center mb-3">
+          <article className="col-3 col-md-2">
             <Link className={`derecha ${categoriaSeleccionada === "primero" ? "active" : ""}`} to="#" onClick={() => setCategoriaSeleccionada("primero")}>New Arrival</Link>
           </article>
-          <article className="col-1 ms-2 me-2">
+          <article className="col-3 col-md-1 ms-4 me-4">
             <Link className={`center ${categoriaSeleccionada === "segundo" ? "active" : ""}`} to="#" onClick={() => setCategoriaSeleccionada("segundo")}>Featured</Link>
           </article>
-          <article className="col-2">
+          <article className="col-3 col-md-2">
             <Link className={`izquierda ${categoriaSeleccionada === "tercero" ? "active" : ""}`} to="#" onClick={() => setCategoriaSeleccionada("tercero")}>Best Selling</Link>
           </article>
         </div>

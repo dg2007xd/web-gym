@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { API_URL } from '../utils';
-
+import './TablasDB.css';
 
 interface Tproductos {
     id: number;
@@ -20,7 +20,7 @@ interface Tplanes {
 interface Tlocales {
     id: number;
     nombre: string;
-    direccion: number;
+    direccion: string;
     telefono: string;
     email: string;
 }
@@ -93,7 +93,7 @@ function TablasDB() {
                         <tr>
                             <th>Nombre</th>
                             <th>Precio S/</th>
-                            <th>Rating(Estrellas)</th>
+                            <th>Rating <br /> (Estrellas)</th>
                             <th>Imagen</th>
                         </tr>
                     </thead>

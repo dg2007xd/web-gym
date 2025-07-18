@@ -28,6 +28,11 @@ export const Cart = () => {
     calcularTotal(datosCarrito)
   }
 
+  const cerrarOffcanvas = () => {
+    const botonCerrar = document.querySelector("#offcanvasRight .btn-close") as HTMLElement;
+    if (botonCerrar) botonCerrar.click();
+  };
+
   const dibujarPrecios = () => {
     return (
       <table className="table align-middle">
@@ -130,7 +135,14 @@ export const Cart = () => {
             <i className="bi bi-cart-x fs-1 negro mb-3"></i>
             <h5 className="text-center fw-bold mb-2 negro">¡Tu carrito está vacío!</h5>
             <p className="text-center negro">Agrega productos para verlos aquí.</p>
-            <Link to="/tienda"><button className="boton-check boton-buy-now uppercase">Empieza a comprar ahora</button></Link>
+            <Link to="/tienda">
+              <button
+                className="boton-check boton-buy-now uppercase"
+                onClick={cerrarOffcanvas}
+              >
+                Empieza a comprar ahora
+              </button>
+            </Link>
           </div>
         ) : (
           <>

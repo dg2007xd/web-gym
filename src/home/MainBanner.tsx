@@ -15,16 +15,16 @@ function MainBanner() {
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img src={slide1} className="d-block banner-img" alt="..." />
-          <div className="carousel-caption d-none d-md-block">
-            <h5 className='titulo mb-5'>ENTRENA CON LOS MEJORES</h5>
-            <p className='sub'>SOLUCIONES DE ALTO RENDIMIENTO</p>
+          <div className="carousel-caption d-block">
+            <h5 className='titulo mb-2'>ENTRENA CON LOS MEJORES</h5>
+            <p className='sub'>SOLUCIONES FITNESS DE ALTO RENDIMIENTO</p>
             <button className='btnC'>DESCUBRIR EQUIPOS</button>
           </div>
         </div>
         <div className="carousel-item">
           <img src={slide2} className="d-block banner-img" alt="..." />
-          <div className="carousel-caption d-none d-md-block">
-            <h5 className='titulo'>FUERZA SIN LÍMITES</h5>
+          <div className="carousel-caption d-block">
+            <h5 className='titulo mb-2'>FUERZA SIN LÍMITES</h5>
             <p className='sub'>PESAS DE ACERO INOXIDABLE DE ALTO RENDIMIENTO</p>
             <button className='btnC'>VER CATÁLOGO</button>
           </div>

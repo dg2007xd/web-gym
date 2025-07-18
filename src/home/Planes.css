@@ -10,14 +10,36 @@
     text-transform: uppercase;
 }
 
-.caption {
+.img-caption-container {
     position: relative;
-    bottom: 76%;
+    width: 100%;
+}
+
+.img-caption-container img {
+    width: 100%;
+    display: block;
 }
 
 .caption-desc {
-    position: relative;
-    bottom: 92%;
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    font-size: 0.85rem;
+    padding: 3px 10px;
+}
+
+.caption {
+    position: absolute;
+    top: 11%;
+    left: 37%;
+    transform: translateX(-50%);
+    z-index: 2;
+    font-size: 30px;
+    color: #111;
+    margin: 0;
+    padding: 0;
 }
 
 .descuento-plan {
@@ -29,34 +51,41 @@
     background-color: #1328E0;
     color: white;
     width: fit-content;
+    height: fit-content;
     margin: auto;
     justify-content: center;
     padding: 3px 4px 3px 5px;
+    /*Cambiar padding para movil*/
 }
 
 @media (max-width: 1746px) {
-    .descuento-plan{
+    .descuento-plan {
         margin: 0 25%;
     }
-    .caption-desc{
+
+    .caption-desc {
         bottom: 100%;
     }
-    
+
 }
+
 @media (max-width: 1397px) {
-    .descuento-plan{
+    .descuento-plan {
         font-size: 0.59rem;
     }
-    .caption-desc{
+
+    .caption-desc {
         bottom: 100%;
     }
-    .caption{
-        bottom: 72%;
+
+    .caption {
+        bottom: 52%;
     }
 }
 
+/*Movil*/
 @media (max-width: 430px) {
-    .row {
+    #planes .row {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -64,8 +93,21 @@
     }
 
     .caption-desc {
-        position: relative;
-        bottom: 20%;
+        top: 6%;
+        font-size: 0.7rem;
     }
-    
+
+    .caption {
+        top: 7%;
+        left: 27%;
+        font-size: 1.2rem;
+    }
+
+    .descuento-plan {
+        padding: 2px 8px;
+        width: fit-content;
+        height: fit-content;
+        margin: auto;
+    }
+
 }
