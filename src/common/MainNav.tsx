@@ -28,10 +28,7 @@ function MainNav() {
   const location = useLocation()
   console.log(location)
 
-  const cerrarOffcanvas = () => {
-    const botonCerrar = document.querySelector("#offcanvasRight .btn-close") as HTMLElement;
-    if (botonCerrar) botonCerrar.click();
-  };
+  
 
   useEffect(() => {
     const handleScroll = () => {
