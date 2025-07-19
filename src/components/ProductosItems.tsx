@@ -6,7 +6,6 @@ import './ProductosItems.css'
 
 
 function ProductosItems({
-
     codigosCategoria,
     mostrarPorDefecto = false,
     setTotalFiltrado,
@@ -21,12 +20,11 @@ function ProductosItems({
 
     const [opcionSeleccionada, setOpcionSeleccionada] = useState(0)
 
-    const [numeroPagina, setNumeroPagina] = useState(0)
-    const filasPagina = 12
+    const [loading, setLoading] = useState(true);
+    const [imagenesCargadas, setImagenesCargadas] = useState(0);
 
 
     useEffect(() => {
-        setNumeroPagina(0);
         // Solo resetea cuando cambian las categorías seleccionadas o el modo por defecto
         if (codigosCategoria.length === 0 && mostrarPorDefecto) {
             leerServicioPorDefecto();
@@ -42,9 +40,15 @@ function ProductosItems({
     }, [codigosCategoria, mostrarPorDefecto]);
 
     useEffect(() => {
-        setNumeroPagina(0);
         ordenarListaProductos(opcionSeleccionada)
     }, [opcionSeleccionada])
+
+    useEffect(() => {
+        if(listaArticulos.length > 0 && imagenesCargadas === listaArticulos.length) {
+            setLoading(false);
+        }
+    })
+
 
     const leerServicio = async (idsCategoria: number[]) => {
         try {
@@ -57,6 +61,8 @@ function ProductosItems({
         }
     };
 
+    
+
     const leerServicioPorDefecto = async () => {
         try {
             const response = await fetch(API_URL + "productos.php");
@@ -67,15 +73,15 @@ function ProductosItems({
             setTotalFiltrado(0);
         }
     };
-    //Com funciona esto? Explicacion paso a paso
-    const articulosMostrados = listaArticulos.slice(0, filasPagina * (numeroPagina + 1));
+    
 
     const dibujarLista = () => {
         return (
             <div id="cards-productos">
-                <div className='row center'>
-                    {articulosMostrados.map(item => (
-                        <div className='cont-artic p-3' key={item.id}>
+                <div className={'row justify-content-center row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 ' + (loading ? "d-none" : "")}>
+
+                    {listaArticulos.map(item => (
+                        <div className='col p-3' key={item.id}>
                             <div className='sec-pro card h-100'>
 
                                 <div id='back-img-shop' className='center container-fluid'>
@@ -88,6 +94,7 @@ function ProductosItems({
                                             width={250}
                                             height={250}
                                             alt={item.nombre}
+                                            onLoad={() => setImagenesCargadas(contar => contar + 1)}
                                         />
                                     </Link>
                                     <i className="fw-bold bi bi-heart icon-favourite"></i>
@@ -113,11 +120,32 @@ function ProductosItems({
                     ))}
                 </div>
                 {/* Botón Ver más */}
-                {(numeroPagina + 1) * filasPagina < listaArticulos.length && (
+                
                     <div className="text-center mt-3">
-                        <button className="btn btn-primary ver-boton" onClick={() => setNumeroPagina(numeroPagina + 1)}>
+                        <button className="btn btn-primary ver-boton" >
                             Ver más
                         </button>
+                    </div>
+                
+            </div>
+        )
+    }
+
+    const dibujarPrecarga = () => {
+        const placeholders = Array.from({ length: 12 })
+        return (
+            <div className={'row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 '
+                + (loading ? "" : "d-none")}>
+
+                {placeholders.map((_, index) =>
+                    <div className="col p-3" key={index}>
+                        <div className="card">
+                            <div className="skeleton-img"></div>
+                            <div className="card-body">
+                                <div className="skeleton-line skeleton-title"> </div>
+                                <div className="skeleton-line skeleton-subtitle"> </div>
+                            </div>
+                        </div>
                     </div>
                 )}
             </div>
@@ -243,6 +271,7 @@ function ProductosItems({
     return (
         <>
             {dibujarOrdenarPor()}
+            {dibujarPrecarga()}
             {dibujarLista()}
             {showQuickView()}
         </>

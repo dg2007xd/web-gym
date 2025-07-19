@@ -1,9 +1,9 @@
-.card {
+#cards-productos .card {
     --bs-card-bg: var(--color1);
     color: var(--color-negro);
 }
 
-.card:hover {
+#cards-productos .card:hover {
     color: var(--color2);
 }
 

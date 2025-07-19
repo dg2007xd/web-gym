@@ -1,0 +1,12 @@
+#sessions{
+    color: var(--color-negro);
+}
+#sessions .card-body{
+    background-color: var(--color1);
+}
+#sessions .card{
+    --bs-card-border-color: var(--table-border-color);
+}
+#sessions .border-bottom {
+    border-bottom: var(--bs-border-width) var(--bs-border-style) var(--table-border-color) !important;
+}

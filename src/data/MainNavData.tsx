@@ -9,7 +9,7 @@ export const navItems: NavItem[] = [
     { label: "home", url: "/", icon: "" },
     { label: "shop", url: "/tienda", icon: "" },
     { label: "categories", url: "/categories", icon: "" },
-    { label: "products", url: "#", icon: "" },///url: "/products"
+    { label: "sessions", url: "/sessions", icon: "" },///url: "/products"
     { label: "top-deals", url: "#", icon: "" },//url: "/top-deals"
     { label: "elements", url: "#", icon: "" },//url: "/elements"
     //{label: "clientes", url: "/clientes"}

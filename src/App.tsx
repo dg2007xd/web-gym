@@ -16,6 +16,7 @@ import Contact from './pages/Contact'
 import AboutUs from './pages/AboutUs'
 import FAQS from './pages/FAQS'
 import Categories from './pages/Categories';
+import Sessions from './pages/Sessions';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -138,6 +139,7 @@ function App() {
             <Route path="/contacto" element={<Contact />} />
             <Route path="/acercadenosotros" element={<AboutUs />} />
             <Route path="/faqs" element={<FAQS />} />
+            <Route path="/sessions" element={<Sessions />} />
 
           </Routes>
         </main>

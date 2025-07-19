@@ -13,6 +13,7 @@ function Categories() {
     const [tipo_ejercicio, setTipo_Ejercicio] = useState("")
     const [equipo_necesario, setEquipo_Necesario] = useState("")
 
+    const [loading, setLoading] = useState(true);
 
     const [filasPagina, setFilasPagina] = useState(10)
     const [numeroPagina, setNumeroPagina] = useState(1)
@@ -32,11 +33,12 @@ function Categories() {
             setListaEjercicios(data.data);
             const tPaginas = Math.ceil(data.total_rows / filasPagina);
             setTotalPaginas(tPaginas);
-
+            setLoading(false)
         } catch (error) {
             console.error("Error consultando datos:", error);
         }
     }
+
 
     const retroceder = () => {
         if (numeroPagina > 1) {
@@ -166,7 +168,7 @@ function Categories() {
         console.log(nombre, categoria_beneficio, tipo_ejercicio, equipo_necesario)
 
         const formData = new FormData()
-        formData.append("nombre", nombre) 
+        formData.append("nombre", nombre)
         formData.append("categoria_beneficio", categoria_beneficio)
         formData.append("tipo_ejercicio", tipo_ejercicio)
         formData.append("equipo_necesario", equipo_necesario)
@@ -350,7 +352,7 @@ function Categories() {
             leerServicio();
             const botonCerrar = document.querySelector("#offcanvasDelete .btn-close") as HTMLElement;
             if (botonCerrar) botonCerrar.click();
-            
+
             setIdejercicio(0);
             setNombre("");
             setCategoria_Beneficio("");
@@ -397,6 +399,12 @@ function Categories() {
         </div>
     );
 
+    const dibujarPreCarga = () => {
+        return (
+            <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+        )
+    }
+
     return (
         <>
             <PageHeader pageTitle="Categories" />
@@ -410,14 +418,13 @@ function Categories() {
                         >Agregar Ejercicio</button>
                     </div>
 
-
                     <div className="d-flex justify-content-between">
                         {dibujarPaginacion()}
                         <div className="negro">Número de Filas
                             {asignarFilasPaginar()}
                         </div>
                     </div>
-                    {dibujarTabla()}
+                    {loading ? dibujarPreCarga() : dibujarTabla()}
                     <div className="negro">
                         {"Total de filas: " + totalFilas}
                     </div>
