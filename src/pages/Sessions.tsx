@@ -17,7 +17,7 @@ function Sessions() {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && !bloquearRef.current) {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 && !bloquearRef.current) {
                 bloquearRef.current = true;
                 setNumeroPagina(prev => prev + 1);
             }
@@ -29,7 +29,7 @@ function Sessions() {
 
     const leerServicio = async (pagina: number) => {
         try {
-            const response = await fetch(`${API_URL}instructores.php?filas_pagina=${filasPagina}&numero_pagina=${pagina}`)
+            const response = await fetch(`${API_URL}sesiones.php?filas_pagina=${filasPagina}&numero_pagina=${pagina}`)
             const data = await response.json()
             let nuevaLista = [...listaSessions, ...data.sesiones];
             setListaSessions(nuevaLista);
@@ -47,12 +47,13 @@ function Sessions() {
         return (
             <>
                 <div className="row fw-bold border-bottom p-2 mb-2">
-                    <div className="col-1 text-center">No. Sesion</div>
+                    <div className="col-1 text-center">No. Sesión</div>
                     <div className="col-2 text-start">Cliente</div>
                     <div className="col-1 text-start">Edad</div>
-                    <div className="col-2 text-center">Fecha de sesion</div>
+                    <div className="col-2 text-center">Fecha de sesión</div>
                     <div className="col-2">Entrenador</div>
-                    <div className="col-3">Especialidad del entrenador</div>
+                    <div className="col-2">Especialidad del entrenador</div>
+                    <div className="col-2 text-center">Experiencia del entrenador</div>
 
                 </div>
 
@@ -67,7 +68,8 @@ function Sessions() {
                                 <div className="col-1 text-start">{item.edad_cliente}</div>
                                 <div className="col-2 text-center">{new Date(item.fechasesion).toLocaleDateString("es-PE")}</div>
                                 <div className="col-2">{item.nombre_entrenador}</div>
-                                <div className="col-3">{item.especialidad_entrenador}</div>
+                                <div className="col-2">{item.especialidad_entrenador}</div>
+                                <div className="col-2 text-center">{item.experiencia_entrenador} años</div>
                             </div>
 
 
