@@ -19,6 +19,8 @@ function Productos({ codigoCategoria }: ProductosProps) {
 
   const [productosRandom, setProductosRandom] = useState<Articulo[]>([]);
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     leerServicio();
   }, []);
@@ -39,6 +41,7 @@ function Productos({ codigoCategoria }: ProductosProps) {
       .then((data: Articulo[]) => {
         console.log(data);
         setListaArticulos(data);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error consultando datos:", error);
@@ -73,7 +76,7 @@ function Productos({ codigoCategoria }: ProductosProps) {
   const dibujarItems = () => {
     return (
       <div id="cards-productos">
-        <div className='row center'>
+        <div className={'row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 ' + (loading ? "d-none" : "")}>
           {productosRandom.map(item => {
             const nombre = String(item.nombre);
             const precio = Number(item.precio);
@@ -125,6 +128,30 @@ function Productos({ codigoCategoria }: ProductosProps) {
     );
   };
 
+
+  const dibujarPrecarga = () => {
+    const placeholders = Array.from({ length: 8 })
+    return (
+        <div id="cards-productos">
+        <div className={'row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 '
+            + (loading ? "" : "d-none")}>
+
+            {placeholders.map((_, index) =>
+                <div className="col p-3" key={index}>
+                    <div className="card">
+                        <div className="skeleton-img"></div>
+                        <div className="card-body">
+                            <div className="skeleton-line skeleton-title"> </div>
+                            <div className="skeleton-stars"> </div>
+                            <div className="skeleton-line skeleton-subtitle"> </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+        </div>
+    )
+}
 
 
   const showQuickView = () => {
@@ -202,6 +229,7 @@ function Productos({ codigoCategoria }: ProductosProps) {
           </article>
         </div>
         <div>
+          {dibujarPrecarga()}
           {dibujarItems()}
           {showQuickView()}
         </div>
