@@ -228,7 +228,7 @@ export const Cart = () => {
             <p className="col text-end precio fw-bold">S/ {total.toFixed(2)}</p>
           </div>
           <div className="row">
-            <Link to="/viewcart" className="col boton-view-offcan me-1 btn btn-primary text-center">
+            <Link to="/viewcart" onClick={cerrarOffcanvas} className="col boton-view-offcan me-1 btn btn-primary text-center">
               View Cart
             </Link>
             <button className="col boton-check-offcan ms-1">Checkout</button>
