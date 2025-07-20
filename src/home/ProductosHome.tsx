@@ -76,12 +76,12 @@ function Productos({ codigoCategoria }: ProductosProps) {
   const dibujarItems = () => {
     return (
       <div id="cards-productos">
-        <div className={'row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 ' + (loading ? "d-none" : "")}>
+        <div className={'row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 justify-content-center' + (loading ? "d-none" : "")}>
           {productosRandom.map(item => {
             const nombre = String(item.nombre);
             const precio = Number(item.precio);
             return (
-              <div className='col-7 col-md-3 p-3' key={item.id}>
+              <div className='col-6 col-md-3 p-3' key={item.id}>
                 <div className='sec-pro card h-100'>
                   <div id='back-img' className='center container-fluid'>
                     <Link to={`/productodetalle/${item.id}`}>
@@ -137,7 +137,7 @@ function Productos({ codigoCategoria }: ProductosProps) {
             + (loading ? "" : "d-none")}>
 
             {placeholders.map((_, index) =>
-                <div className="col p-3" key={index}>
+                <div className="col-6 col-md-3 p-3" key={index}>
                     <div className="card">
                         <div className="skeleton-img"></div>
                         <div className="card-body">
