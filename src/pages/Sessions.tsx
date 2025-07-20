@@ -47,6 +47,7 @@ function Sessions() {
     const dibujarTabla = () => {
         return (
             <>
+                {/* Sesiones */}
                 <div className="row fw-bold border-bottom p-2 mb-2">
                     <div className="col-1 text-center">No. Sesión</div>
                     <div className="col-2 text-start">Cliente</div>

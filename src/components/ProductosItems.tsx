@@ -33,7 +33,6 @@ function ProductosItems({
     const hayMasProductos = productosMostrados < listaArticulos.length;
 
     useEffect(() => {
-        // Solo resetea cuando cambian las categorías seleccionadas o el modo por defecto
         if (codigosCategoria.length === 0 && mostrarPorDefecto) {
             leerServicioPorDefecto();
             return;
@@ -41,7 +40,7 @@ function ProductosItems({
         if (codigosCategoria.length === 0) {
             setListaArticulos([]);
             setTotalFiltrado(0);
-            setDatosInicialesCargados(false); // Resetear para nueva carga inicial
+            setDatosInicialesCargados(false);
             return;
         }
         leerServicio(codigosCategoria);
@@ -52,13 +51,12 @@ function ProductosItems({
         ordenarListaProductos(opcionSeleccionada)
     }, [opcionSeleccionada])
 
-    // Resetear paginación cuando cambian los productos
     useEffect(() => {
         setProductosMostrados(productosPorPagina);
     }, [listaArticulos, productosPorPagina]);
 
 
-
+    
     const leerServicio = async (idsCategoria: number[]) => {
         if (!datosInicialesCargados) {
             setLoading(true);
