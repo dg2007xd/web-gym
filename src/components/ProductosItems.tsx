@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Articulo } from "../types/Articulo";
 import { Link } from "react-router-dom";
 import './ProductosItems.css'
+import axios from "axios";
 
 
 function ProductosItems({
@@ -63,8 +64,8 @@ function ProductosItems({
             setLoading(true);
         }
         try {
-            const response = await fetch(API_URL + "productos.php?idcategoria=" + idsCategoria.join(","));
-            const data: Articulo[] = await response.json();
+            const response = await axios.get(API_URL + "productos.php?idcategoria=" + idsCategoria.join(","));
+            const data: Articulo[] = response.data;
             setListaArticulos(data);
             setTotalFiltrado(data.length);
             if (!datosInicialesCargados) {
@@ -86,8 +87,8 @@ function ProductosItems({
             setLoading(true);
         }
         try {
-            const response = await fetch(API_URL + "productos.php");
-            const data: Articulo[] = await response.json();
+            const response = await axios.get(API_URL + "productos.php");
+            const data: Articulo[] = response.data;
             setListaArticulos(data);
             setTotalFiltrado(data.length);
             if (!datosInicialesCargados) {

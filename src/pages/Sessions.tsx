@@ -3,6 +3,7 @@ import PageHeader from "../components/PageHeader"
 import { Session } from "../types/Session";
 import { API_URL } from "../utils";
 import "./Sessions.css";
+import axios from "axios";
 
 function Sessions() {
     const [listaSessions, setListaSessions] = useState<Session[]>([]);
@@ -29,8 +30,8 @@ function Sessions() {
 
     const leerServicio = async (pagina: number) => {
         try {
-            const response = await fetch(`${API_URL}sesiones.php?filas_pagina=${filasPagina}&numero_pagina=${pagina}`)
-            const data = await response.json()
+            const response = await axios.get(`${API_URL}sesiones.php?filas_pagina=${filasPagina}&numero_pagina=${pagina}`)
+            const data = response.data
             let nuevaLista = [...listaSessions, ...data.sesiones];
             setListaSessions(nuevaLista);
         }

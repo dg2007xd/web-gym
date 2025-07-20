@@ -3,6 +3,7 @@ import { Articulo } from '../types/Articulo'
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { agregarCarrito, API_URL } from '../utils';
+import axios from 'axios';
 
 interface ProductosProps {
   codigoCategoria: number;
@@ -34,18 +35,17 @@ function Productos({ codigoCategoria }: ProductosProps) {
     }
   }, [listaArticulos, categoriaSeleccionada]);
 
-  const leerServicio = () => {
-
-    fetch(API_URL + "productos.php")
-      .then(response => response.json())
-      .then((data: Articulo[]) => {
-        console.log(data);
-        setListaArticulos(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error consultando datos:", error);
-      });
+  const leerServicio = async () => {
+    try {
+      const response = await axios.get(API_URL + "productos.php")
+      const data: Articulo[] = response.data;
+      console.log(data);
+      setListaArticulos(data);
+      setLoading(false);
+    } 
+    catch (error) {
+      console.error("Error consultando datos:", error);
+    }
 
   }
 
@@ -132,85 +132,85 @@ function Productos({ codigoCategoria }: ProductosProps) {
   const dibujarPrecarga = () => {
     const placeholders = Array.from({ length: 8 })
     return (
-        <div id="cards-productos">
+      <div id="cards-productos">
         <div className={'row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 justify-content-center '
-            + (loading ? "" : "d-none")}>
+          + (loading ? "" : "d-none")}>
 
-            {placeholders.map((_, index) =>
-                <div className="col-6 col-md-3 p-3" key={index}>
-                    <div className="card">
-                        <div className="skeleton-img"></div>
-                        <div className="card-body">
-                            <div className="skeleton-line skeleton-title"> </div>
-                            <div className="skeleton-stars"> </div>
-                            <div className="skeleton-line skeleton-subtitle"> </div>
-                        </div>
-                    </div>
+          {placeholders.map((_, index) =>
+            <div className="col-6 col-md-3 p-3" key={index}>
+              <div className="card">
+                <div className="skeleton-img"></div>
+                <div className="card-body">
+                  <div className="skeleton-line skeleton-title"> </div>
+                  <div className="skeleton-stars"> </div>
+                  <div className="skeleton-line skeleton-subtitle"> </div>
                 </div>
-            )}
+              </div>
+            </div>
+          )}
         </div>
-        </div>
+      </div>
     )
-}
+  }
 
 
   const showQuickView = () => {
-        const precio = Number(productoSeleccionado?.precio);
-        return (
-            <div className="modal fade" id="quickViewModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered modal-lg">
-                    <div className="modal-content">
-                        <div className="modal-body p-0">
-                            <div className="quickview-all">
-                                {/* Imagen izquierda */}
-                                <div className="quickview-left d-flex align-items-center justify-content-center">
-                                    <img
-                                        src={productoSeleccionado?.imagen
-                                            ? API_URL + productoSeleccionado.imagen
-                                            : API_URL + "imagenes/nofoto.jpg"}
-                                        className="img-fluid img-quickview"
-                                        alt={productoSeleccionado?.nombre}
-                                        
-                                    />
-                                </div>
-                                {/* Info derecha */}
-                                <div className="quickview-right p-4">
-                                    <h4 className="fw-bold mb-2">{productoSeleccionado?.nombre}</h4>
-                                    <div className="d-flex align-items-center mb-2">
-                                        <div>{renderStars(productoSeleccionado?.rating ?? 0)}</div>
-                                        <a
-                                            href="#"
-                                            className="ms-2 producto-review"
-                                        >
-                                            ({productoSeleccionado?.review ?? 0} review{(productoSeleccionado?.review ?? 0) !== 1 ? "s" : ""})
-                                        </a>
-                                    </div>
-                                    <div className="mb-3 precio-design">
-                                        S/ {precio.toFixed(2)}
-                                    </div>
-                                    <div className="mb-3 desc-text">
-                                        {productoSeleccionado?.descripcion}
-                                    </div>
-                                    <div className="d-flex gap-2">
-                                        <button
-                                            type="button"
-                                            className="btn mb-2 uppercase boton-quickview"
-                                            onClick={() => productoSeleccionado && agregarCarrito(productoSeleccionado, 1)}
-                                        >
-                                            Add to cart
-                                        </button>
-                                    </div>
-                                    <div className="gris capitalize">
-                                        Categoria: {productoSeleccionado?.nombrecategoria}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    const precio = Number(productoSeleccionado?.precio);
+    return (
+      <div className="modal fade" id="quickViewModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered modal-lg">
+          <div className="modal-content">
+            <div className="modal-body p-0">
+              <div className="quickview-all">
+                {/* Imagen izquierda */}
+                <div className="quickview-left d-flex align-items-center justify-content-center">
+                  <img
+                    src={productoSeleccionado?.imagen
+                      ? API_URL + productoSeleccionado.imagen
+                      : API_URL + "imagenes/nofoto.jpg"}
+                    className="img-fluid img-quickview"
+                    alt={productoSeleccionado?.nombre}
+
+                  />
                 </div>
+                {/* Info derecha */}
+                <div className="quickview-right p-4">
+                  <h4 className="fw-bold mb-2">{productoSeleccionado?.nombre}</h4>
+                  <div className="d-flex align-items-center mb-2">
+                    <div>{renderStars(productoSeleccionado?.rating ?? 0)}</div>
+                    <a
+                      href="#"
+                      className="ms-2 producto-review"
+                    >
+                      ({productoSeleccionado?.review ?? 0} review{(productoSeleccionado?.review ?? 0) !== 1 ? "s" : ""})
+                    </a>
+                  </div>
+                  <div className="mb-3 precio-design">
+                    S/ {precio.toFixed(2)}
+                  </div>
+                  <div className="mb-3 desc-text">
+                    {productoSeleccionado?.descripcion}
+                  </div>
+                  <div className="d-flex gap-2">
+                    <button
+                      type="button"
+                      className="btn mb-2 uppercase boton-quickview"
+                      onClick={() => productoSeleccionado && agregarCarrito(productoSeleccionado, 1)}
+                    >
+                      Add to cart
+                    </button>
+                  </div>
+                  <div className="gris capitalize">
+                    Categoria: {productoSeleccionado?.nombrecategoria}
+                  </div>
+                </div>
+              </div>
             </div>
-        )
-    }
+          </div>
+        </div>
+      </div>
+    )
+  }
 
 
   return (

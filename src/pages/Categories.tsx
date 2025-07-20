@@ -3,6 +3,7 @@ import PageHeader from "../components/PageHeader"
 import { Ejercicio } from "../types/Ejercicio";
 import { API_URL } from "../utils";
 import './Categories.css';
+import axios from "axios";
 
 
 function Categories() {
@@ -27,8 +28,8 @@ function Categories() {
 
     const leerServicio = async () => {
         try {
-            const response = await fetch(`${API_URL}ejerciciospaginacion.php?pagina=${numeroPagina}&filasPagina=${filasPagina}`);
-            const data: { total_rows: number, data: Ejercicio[] } = await response.json();
+            const response = await axios.get(`${API_URL}ejerciciospaginacion.php?pagina=${numeroPagina}&filasPagina=${filasPagina}`);
+            const data: { total_rows: number, data: Ejercicio[] } = response.data;
             setTotalFilas(data.total_rows);
             setListaEjercicios(data.data);
             const tPaginas = Math.ceil(data.total_rows / filasPagina);
