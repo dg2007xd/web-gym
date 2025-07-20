@@ -76,7 +76,7 @@ function Productos({ codigoCategoria }: ProductosProps) {
   const dibujarItems = () => {
     return (
       <div id="cards-productos">
-        <div className={'row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 justify-content-center' + (loading ? "d-none" : "")}>
+        <div className={'row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 justify-content-center ' + (loading ? "d-none" : "")}>
           {productosRandom.map(item => {
             const nombre = String(item.nombre);
             const precio = Number(item.precio);
@@ -133,7 +133,7 @@ function Productos({ codigoCategoria }: ProductosProps) {
     const placeholders = Array.from({ length: 8 })
     return (
         <div id="cards-productos">
-        <div className={'row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 '
+        <div className={'row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 justify-content-center '
             + (loading ? "" : "d-none")}>
 
             {placeholders.map((_, index) =>
