@@ -33,6 +33,10 @@ function TablasDB() {
 
     const [listaTablaLoc, setTablaLoc] = useState<Tlocales[]>([]);
 
+    const [loadingProductos, setLoadingProductos] = useState(true);
+    const [loadingPlanes, setLoadingPlanes] = useState(true);
+    const [loadingLocales, setLoadingLocales] = useState(true);
+
     useEffect(() => {
         funcProductos();
     }, []);
@@ -51,6 +55,7 @@ function TablasDB() {
             .then((data: Tproductos[]) => {
                 console.log(data);
                 setTablaPro(data);
+                setLoadingProductos(false);
             })
             .catch((error) => {
                 console.error("Error consultando datos:", error);
@@ -63,6 +68,7 @@ function TablasDB() {
             .then((data: Tplanes[]) => {
                 console.log(data);
                 setTablaPla(data);
+                setLoadingPlanes(false);
             })
             .catch((error) => {
                 console.error("Error consultando datos:", error);
@@ -75,17 +81,21 @@ function TablasDB() {
             .then((data: Tlocales[]) => {
                 console.log(data);
                 setTablaLoc(data);
+                setLoadingLocales(false);
             })
             .catch((error) => {
                 console.error("Error consultando datos:", error);
             });
     }
 
+    const dibujarPreCarga = () => {
+        return (
+            <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+        )
+    }
 
-
-    return (
-        //Productos
-        <section id="envios" className='padded'>
+    const dibujarTablaProductos = () => {
+        return (
             <div className="container">
                 <h2 className='negro uppercase'>Tabla de Productos</h2>
                 <table className="table table-striped table-hover table-bordered">
@@ -109,9 +119,11 @@ function TablasDB() {
                     </tbody>
                 </table>
             </div>
+        )
+    }
 
-            
-            {/* Planes */}
+    const dibujarTablaPlanes = () => {
+        return (
             <div className="container">
                 <h2 className='negro uppercase'>Tabla de Planes</h2>
                 <table className="table table-striped table-hover table-bordered">
@@ -135,8 +147,11 @@ function TablasDB() {
                     </tbody>
                 </table>
             </div>
+        )
+    }
 
-            {/* Locales */}
+    const dibujarTablaLocales = () => {
+        return (
             <div className="container">
                 <h2 className='negro uppercase'>Tabla de Locales</h2>
                 <table className="table table-striped table-hover table-bordered">
@@ -160,6 +175,20 @@ function TablasDB() {
                     </tbody>
                 </table>
             </div>
+        )
+    }
+
+
+    return (
+        //Productos
+        <section id="envios" className='padded'>
+            {loadingProductos ? dibujarPreCarga() : dibujarTablaProductos()}
+
+            {/* Planes */}
+            {loadingPlanes ? dibujarPreCarga() : dibujarTablaPlanes()}
+
+            {/* Locales */}
+            {loadingLocales ? dibujarPreCarga() : dibujarTablaLocales()}
 
         </section>
     )

@@ -21,12 +21,27 @@
 }
 
 .skeleton-title {
-    width: 80%;
+    width: 100%;
     height: 18px;
 }
 
 .skeleton-subtitle {
-    width: 60%;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.skeleton-stars {
+    display: flex;
+    justify-content: center;
+    gap: 1px;   
+    margin: 8px 0;
+}
+
+.skeleton-stars::before {
+    content: "★★★★★";  
+    color: #ddd;
+    font-size: 22px;
+    letter-spacing: 2px;
 }
 
 @keyframes skeleton-loading {

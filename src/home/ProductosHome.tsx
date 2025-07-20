@@ -210,4 +210,5 @@ function Productos({ codigoCategoria }: ProductosProps) {
   )
 }
 
+
 export default Productos

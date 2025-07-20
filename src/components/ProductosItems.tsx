@@ -21,8 +21,15 @@ function ProductosItems({
     const [opcionSeleccionada, setOpcionSeleccionada] = useState(0)
 
     const [loading, setLoading] = useState(true);
-    const [imagenesCargadas, setImagenesCargadas] = useState(0);
+    const [datosInicialesCargados, setDatosInicialesCargados] = useState(false);
 
+    // Estados para paginación
+    const [productosPorPagina] = useState(12);
+    const [productosMostrados, setProductosMostrados] = useState(12);
+
+    // Calcular productos visibles
+    const productosVisibles = listaArticulos.slice(0, productosMostrados);
+    const hayMasProductos = productosMostrados < listaArticulos.length;
 
     useEffect(() => {
         // Solo resetea cuando cambian las categorías seleccionadas o el modo por defecto
@@ -33,6 +40,7 @@ function ProductosItems({
         if (codigosCategoria.length === 0) {
             setListaArticulos([]);
             setTotalFiltrado(0);
+            setDatosInicialesCargados(false); // Resetear para nueva carga inicial
             return;
         }
         leerServicio(codigosCategoria);
@@ -43,35 +51,60 @@ function ProductosItems({
         ordenarListaProductos(opcionSeleccionada)
     }, [opcionSeleccionada])
 
+    // Resetear paginación cuando cambian los productos
     useEffect(() => {
-        if(listaArticulos.length > 0 && imagenesCargadas === listaArticulos.length) {
-            setLoading(false);
-        }
-    })
+        setProductosMostrados(productosPorPagina);
+    }, [listaArticulos, productosPorPagina]);
+
 
 
     const leerServicio = async (idsCategoria: number[]) => {
+        if (!datosInicialesCargados) {
+            setLoading(true);
+        }
         try {
             const response = await fetch(API_URL + "productos.php?idcategoria=" + idsCategoria.join(","));
             const data: Articulo[] = await response.json();
             setListaArticulos(data);
             setTotalFiltrado(data.length);
+            if (!datosInicialesCargados) {
+                setLoading(false);
+                setDatosInicialesCargados(true);
+            }
         } catch (error) {
             setTotalFiltrado(0);
+            if (!datosInicialesCargados) {
+                setLoading(false);
+                setDatosInicialesCargados(true);
+            }
         }
     };
 
-    
 
     const leerServicioPorDefecto = async () => {
+        if (!datosInicialesCargados) {
+            setLoading(true);
+        }
         try {
             const response = await fetch(API_URL + "productos.php");
             const data: Articulo[] = await response.json();
             setListaArticulos(data);
             setTotalFiltrado(data.length);
+            if (!datosInicialesCargados) {
+                setLoading(false);
+                setDatosInicialesCargados(true);
+            }
         } catch (error) {
             setTotalFiltrado(0);
+            if (!datosInicialesCargados) {
+                setLoading(false);
+                setDatosInicialesCargados(true);
+            }
         }
+    };
+
+    const cargarMasProductos = () => {
+        setProductosMostrados(prev => prev + productosPorPagina);
     };
     
 
@@ -80,7 +113,7 @@ function ProductosItems({
             <div id="cards-productos">
                 <div className={'row justify-content-center row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 ' + (loading ? "d-none" : "")}>
 
-                    {listaArticulos.map(item => (
+                    {productosVisibles.map(item => (
                         <div className='col p-3' key={item.id}>
                             <div className='sec-pro card h-100'>
 
@@ -94,7 +127,6 @@ function ProductosItems({
                                             width={250}
                                             height={250}
                                             alt={item.nombre}
-                                            onLoad={() => setImagenesCargadas(contar => contar + 1)}
                                         />
                                     </Link>
                                     <i className="fw-bold bi bi-heart icon-favourite"></i>
@@ -120,13 +152,13 @@ function ProductosItems({
                     ))}
                 </div>
                 {/* Botón Ver más */}
-                
+                {hayMasProductos && !loading && (
                     <div className="text-center mt-3">
-                        <button className="btn btn-primary ver-boton" >
+                        <button className="btn btn-primary ver-boton" onClick={cargarMasProductos}>
                             Ver más
                         </button>
                     </div>
-                
+                )}
             </div>
         )
     }
@@ -134,6 +166,7 @@ function ProductosItems({
     const dibujarPrecarga = () => {
         const placeholders = Array.from({ length: 12 })
         return (
+            <div id="cards-productos">
             <div className={'row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 '
                 + (loading ? "" : "d-none")}>
 
@@ -143,11 +176,13 @@ function ProductosItems({
                             <div className="skeleton-img"></div>
                             <div className="card-body">
                                 <div className="skeleton-line skeleton-title"> </div>
+                                <div className="skeleton-stars"> </div>
                                 <div className="skeleton-line skeleton-subtitle"> </div>
                             </div>
                         </div>
                     </div>
                 )}
+            </div>
             </div>
         )
     }
