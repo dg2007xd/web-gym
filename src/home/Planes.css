@@ -86,7 +86,9 @@
     }
 
     .caption {
-        bottom: 52%;
+        top: 6%;
+        left: 27%;
+        font-size: 1.5rem;
     }
 }
 
