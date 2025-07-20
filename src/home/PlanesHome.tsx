@@ -29,7 +29,7 @@ function PlanesHome() {
             <div className='row g-3 justify-content-center'>
                 {
                     listaPlanes.map(item =>
-                        <div className='col-5 col-md-4' key={item.id}>
+                        <div className='col-6 col-md-4' key={item.id}>
                             <div className="img-caption-container" style={{ position: "relative" }}>
                                 <img src={API_URL + item.imagen} className="img-fluid" alt="..." />
                                 <h1 className='caption Oswald text-planes ms-5 me-5'>{item.nombre}</h1>
